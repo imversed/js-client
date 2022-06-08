@@ -1,8 +1,8 @@
 /* eslint-disable */
-import { Coin } from "../../base/v1beta1/coin"
-import { Writer, Reader } from "protobufjs/minimal"
+import { Coin } from '../../../cosmos/base/v1beta1/coin'
+import { Writer, Reader } from 'protobufjs/minimal'
 
-export const protobufPackage = "cosmos.bank.v1beta1"
+export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /** Params defines the parameters for the bank module. */
 export interface Params {
@@ -76,11 +76,17 @@ export interface Metadata {
    * displayed in clients.
    */
   display: string
-  /** name defines the name of the token (eg: Cosmos Atom) */
+  /**
+   * name defines the name of the token (eg: Cosmos Atom)
+   *
+   * Since: cosmos-sdk 0.43
+   */
   name: string
   /**
    * symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
    * be the same as the display.
+   *
+   * Since: cosmos-sdk 0.43
    */
   symbol: string
 }
@@ -100,7 +106,7 @@ export const Params = {
 
   decode(input: Reader | Uint8Array, length?: number): Params {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseParams } as Params
     message.sendEnabled = []
     while (reader.pos < end) {
@@ -139,11 +145,12 @@ export const Params = {
   toJSON(message: Params): unknown {
     const obj: any = {}
     if (message.sendEnabled) {
-      obj.sendEnabled = message.sendEnabled.map(e => (e ? SendEnabled.toJSON(e) : undefined))
+      obj.sendEnabled = message.sendEnabled.map((e) => (e ? SendEnabled.toJSON(e) : undefined))
     } else {
       obj.sendEnabled = []
     }
-    message.defaultSendEnabled !== undefined && (obj.defaultSendEnabled = message.defaultSendEnabled)
+    message.defaultSendEnabled !== undefined &&
+      (obj.defaultSendEnabled = message.defaultSendEnabled)
     return obj
   },
 
@@ -164,11 +171,11 @@ export const Params = {
   }
 }
 
-const baseSendEnabled: object = { denom: "", enabled: false }
+const baseSendEnabled: object = { denom: '', enabled: false }
 
 export const SendEnabled = {
   encode(message: SendEnabled, writer: Writer = Writer.create()): Writer {
-    if (message.denom !== "") {
+    if (message.denom !== '') {
       writer.uint32(10).string(message.denom)
     }
     if (message.enabled === true) {
@@ -179,7 +186,7 @@ export const SendEnabled = {
 
   decode(input: Reader | Uint8Array, length?: number): SendEnabled {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseSendEnabled } as SendEnabled
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -203,7 +210,7 @@ export const SendEnabled = {
     if (object.denom !== undefined && object.denom !== null) {
       message.denom = String(object.denom)
     } else {
-      message.denom = ""
+      message.denom = ''
     }
     if (object.enabled !== undefined && object.enabled !== null) {
       message.enabled = Boolean(object.enabled)
@@ -225,7 +232,7 @@ export const SendEnabled = {
     if (object.denom !== undefined && object.denom !== null) {
       message.denom = object.denom
     } else {
-      message.denom = ""
+      message.denom = ''
     }
     if (object.enabled !== undefined && object.enabled !== null) {
       message.enabled = object.enabled
@@ -236,11 +243,11 @@ export const SendEnabled = {
   }
 }
 
-const baseInput: object = { address: "" }
+const baseInput: object = { address: '' }
 
 export const Input = {
   encode(message: Input, writer: Writer = Writer.create()): Writer {
-    if (message.address !== "") {
+    if (message.address !== '') {
       writer.uint32(10).string(message.address)
     }
     for (const v of message.coins) {
@@ -251,7 +258,7 @@ export const Input = {
 
   decode(input: Reader | Uint8Array, length?: number): Input {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseInput } as Input
     message.coins = []
     while (reader.pos < end) {
@@ -277,7 +284,7 @@ export const Input = {
     if (object.address !== undefined && object.address !== null) {
       message.address = String(object.address)
     } else {
-      message.address = ""
+      message.address = ''
     }
     if (object.coins !== undefined && object.coins !== null) {
       for (const e of object.coins) {
@@ -291,7 +298,7 @@ export const Input = {
     const obj: any = {}
     message.address !== undefined && (obj.address = message.address)
     if (message.coins) {
-      obj.coins = message.coins.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.coins = message.coins.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.coins = []
     }
@@ -304,7 +311,7 @@ export const Input = {
     if (object.address !== undefined && object.address !== null) {
       message.address = object.address
     } else {
-      message.address = ""
+      message.address = ''
     }
     if (object.coins !== undefined && object.coins !== null) {
       for (const e of object.coins) {
@@ -315,11 +322,11 @@ export const Input = {
   }
 }
 
-const baseOutput: object = { address: "" }
+const baseOutput: object = { address: '' }
 
 export const Output = {
   encode(message: Output, writer: Writer = Writer.create()): Writer {
-    if (message.address !== "") {
+    if (message.address !== '') {
       writer.uint32(10).string(message.address)
     }
     for (const v of message.coins) {
@@ -330,7 +337,7 @@ export const Output = {
 
   decode(input: Reader | Uint8Array, length?: number): Output {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseOutput } as Output
     message.coins = []
     while (reader.pos < end) {
@@ -356,7 +363,7 @@ export const Output = {
     if (object.address !== undefined && object.address !== null) {
       message.address = String(object.address)
     } else {
-      message.address = ""
+      message.address = ''
     }
     if (object.coins !== undefined && object.coins !== null) {
       for (const e of object.coins) {
@@ -370,7 +377,7 @@ export const Output = {
     const obj: any = {}
     message.address !== undefined && (obj.address = message.address)
     if (message.coins) {
-      obj.coins = message.coins.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.coins = message.coins.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.coins = []
     }
@@ -383,7 +390,7 @@ export const Output = {
     if (object.address !== undefined && object.address !== null) {
       message.address = object.address
     } else {
-      message.address = ""
+      message.address = ''
     }
     if (object.coins !== undefined && object.coins !== null) {
       for (const e of object.coins) {
@@ -406,7 +413,7 @@ export const Supply = {
 
   decode(input: Reader | Uint8Array, length?: number): Supply {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseSupply } as Supply
     message.total = []
     while (reader.pos < end) {
@@ -437,7 +444,7 @@ export const Supply = {
   toJSON(message: Supply): unknown {
     const obj: any = {}
     if (message.total) {
-      obj.total = message.total.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.total = message.total.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.total = []
     }
@@ -456,11 +463,11 @@ export const Supply = {
   }
 }
 
-const baseDenomUnit: object = { denom: "", exponent: 0, aliases: "" }
+const baseDenomUnit: object = { denom: '', exponent: 0, aliases: '' }
 
 export const DenomUnit = {
   encode(message: DenomUnit, writer: Writer = Writer.create()): Writer {
-    if (message.denom !== "") {
+    if (message.denom !== '') {
       writer.uint32(10).string(message.denom)
     }
     if (message.exponent !== 0) {
@@ -474,7 +481,7 @@ export const DenomUnit = {
 
   decode(input: Reader | Uint8Array, length?: number): DenomUnit {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseDenomUnit } as DenomUnit
     message.aliases = []
     while (reader.pos < end) {
@@ -503,7 +510,7 @@ export const DenomUnit = {
     if (object.denom !== undefined && object.denom !== null) {
       message.denom = String(object.denom)
     } else {
-      message.denom = ""
+      message.denom = ''
     }
     if (object.exponent !== undefined && object.exponent !== null) {
       message.exponent = Number(object.exponent)
@@ -523,7 +530,7 @@ export const DenomUnit = {
     message.denom !== undefined && (obj.denom = message.denom)
     message.exponent !== undefined && (obj.exponent = message.exponent)
     if (message.aliases) {
-      obj.aliases = message.aliases.map(e => e)
+      obj.aliases = message.aliases.map((e) => e)
     } else {
       obj.aliases = []
     }
@@ -536,7 +543,7 @@ export const DenomUnit = {
     if (object.denom !== undefined && object.denom !== null) {
       message.denom = object.denom
     } else {
-      message.denom = ""
+      message.denom = ''
     }
     if (object.exponent !== undefined && object.exponent !== null) {
       message.exponent = object.exponent
@@ -552,26 +559,26 @@ export const DenomUnit = {
   }
 }
 
-const baseMetadata: object = { description: "", base: "", display: "", name: "", symbol: "" }
+const baseMetadata: object = { description: '', base: '', display: '', name: '', symbol: '' }
 
 export const Metadata = {
   encode(message: Metadata, writer: Writer = Writer.create()): Writer {
-    if (message.description !== "") {
+    if (message.description !== '') {
       writer.uint32(10).string(message.description)
     }
     for (const v of message.denomUnits) {
       DenomUnit.encode(v!, writer.uint32(18).fork()).ldelim()
     }
-    if (message.base !== "") {
+    if (message.base !== '') {
       writer.uint32(26).string(message.base)
     }
-    if (message.display !== "") {
+    if (message.display !== '') {
       writer.uint32(34).string(message.display)
     }
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(42).string(message.name)
     }
-    if (message.symbol !== "") {
+    if (message.symbol !== '') {
       writer.uint32(50).string(message.symbol)
     }
     return writer
@@ -579,7 +586,7 @@ export const Metadata = {
 
   decode(input: Reader | Uint8Array, length?: number): Metadata {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMetadata } as Metadata
     message.denomUnits = []
     while (reader.pos < end) {
@@ -617,7 +624,7 @@ export const Metadata = {
     if (object.description !== undefined && object.description !== null) {
       message.description = String(object.description)
     } else {
-      message.description = ""
+      message.description = ''
     }
     if (object.denomUnits !== undefined && object.denomUnits !== null) {
       for (const e of object.denomUnits) {
@@ -627,22 +634,22 @@ export const Metadata = {
     if (object.base !== undefined && object.base !== null) {
       message.base = String(object.base)
     } else {
-      message.base = ""
+      message.base = ''
     }
     if (object.display !== undefined && object.display !== null) {
       message.display = String(object.display)
     } else {
-      message.display = ""
+      message.display = ''
     }
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.symbol !== undefined && object.symbol !== null) {
       message.symbol = String(object.symbol)
     } else {
-      message.symbol = ""
+      message.symbol = ''
     }
     return message
   },
@@ -651,7 +658,7 @@ export const Metadata = {
     const obj: any = {}
     message.description !== undefined && (obj.description = message.description)
     if (message.denomUnits) {
-      obj.denomUnits = message.denomUnits.map(e => (e ? DenomUnit.toJSON(e) : undefined))
+      obj.denomUnits = message.denomUnits.map((e) => (e ? DenomUnit.toJSON(e) : undefined))
     } else {
       obj.denomUnits = []
     }
@@ -668,7 +675,7 @@ export const Metadata = {
     if (object.description !== undefined && object.description !== null) {
       message.description = object.description
     } else {
-      message.description = ""
+      message.description = ''
     }
     if (object.denomUnits !== undefined && object.denomUnits !== null) {
       for (const e of object.denomUnits) {
@@ -678,22 +685,22 @@ export const Metadata = {
     if (object.base !== undefined && object.base !== null) {
       message.base = object.base
     } else {
-      message.base = ""
+      message.base = ''
     }
     if (object.display !== undefined && object.display !== null) {
       message.display = object.display
     } else {
-      message.display = ""
+      message.display = ''
     }
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.symbol !== undefined && object.symbol !== null) {
       message.symbol = object.symbol
     } else {
-      message.symbol = ""
+      message.symbol = ''
     }
     return message
   }

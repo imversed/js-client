@@ -1,10 +1,8 @@
 /* eslint-disable */
-/* tslint:disable */
-// @ts-nocheck
-import * as Long from "long"
-import { util, configure, Writer, Reader } from "protobufjs/minimal"
+import * as Long from 'long'
+import { util, configure, Writer, Reader } from 'protobufjs/minimal'
 
-export const protobufPackage = "google.protobuf"
+export const protobufPackage = 'google.protobuf'
 
 /**
  * The protocol compiler can output a FileDescriptorSet containing the .proto
@@ -80,7 +78,6 @@ export interface DescriptorProto_ExtensionRange {
  * fields or extension ranges in the same message. Reserved ranges may
  * not overlap.
  */
-// tslint:disable-next-line:class-name
 export interface DescriptorProto_ReservedRange {
   /** Inclusive. */
   start: number
@@ -210,61 +207,61 @@ export enum FieldDescriptorProto_Type {
 export function fieldDescriptorProto_TypeFromJSON(object: any): FieldDescriptorProto_Type {
   switch (object) {
     case 1:
-    case "TYPE_DOUBLE":
+    case 'TYPE_DOUBLE':
       return FieldDescriptorProto_Type.TYPE_DOUBLE
     case 2:
-    case "TYPE_FLOAT":
+    case 'TYPE_FLOAT':
       return FieldDescriptorProto_Type.TYPE_FLOAT
     case 3:
-    case "TYPE_INT64":
+    case 'TYPE_INT64':
       return FieldDescriptorProto_Type.TYPE_INT64
     case 4:
-    case "TYPE_UINT64":
+    case 'TYPE_UINT64':
       return FieldDescriptorProto_Type.TYPE_UINT64
     case 5:
-    case "TYPE_INT32":
+    case 'TYPE_INT32':
       return FieldDescriptorProto_Type.TYPE_INT32
     case 6:
-    case "TYPE_FIXED64":
+    case 'TYPE_FIXED64':
       return FieldDescriptorProto_Type.TYPE_FIXED64
     case 7:
-    case "TYPE_FIXED32":
+    case 'TYPE_FIXED32':
       return FieldDescriptorProto_Type.TYPE_FIXED32
     case 8:
-    case "TYPE_BOOL":
+    case 'TYPE_BOOL':
       return FieldDescriptorProto_Type.TYPE_BOOL
     case 9:
-    case "TYPE_STRING":
+    case 'TYPE_STRING':
       return FieldDescriptorProto_Type.TYPE_STRING
     case 10:
-    case "TYPE_GROUP":
+    case 'TYPE_GROUP':
       return FieldDescriptorProto_Type.TYPE_GROUP
     case 11:
-    case "TYPE_MESSAGE":
+    case 'TYPE_MESSAGE':
       return FieldDescriptorProto_Type.TYPE_MESSAGE
     case 12:
-    case "TYPE_BYTES":
+    case 'TYPE_BYTES':
       return FieldDescriptorProto_Type.TYPE_BYTES
     case 13:
-    case "TYPE_UINT32":
+    case 'TYPE_UINT32':
       return FieldDescriptorProto_Type.TYPE_UINT32
     case 14:
-    case "TYPE_ENUM":
+    case 'TYPE_ENUM':
       return FieldDescriptorProto_Type.TYPE_ENUM
     case 15:
-    case "TYPE_SFIXED32":
+    case 'TYPE_SFIXED32':
       return FieldDescriptorProto_Type.TYPE_SFIXED32
     case 16:
-    case "TYPE_SFIXED64":
+    case 'TYPE_SFIXED64':
       return FieldDescriptorProto_Type.TYPE_SFIXED64
     case 17:
-    case "TYPE_SINT32":
+    case 'TYPE_SINT32':
       return FieldDescriptorProto_Type.TYPE_SINT32
     case 18:
-    case "TYPE_SINT64":
+    case 'TYPE_SINT64':
       return FieldDescriptorProto_Type.TYPE_SINT64
     case -1:
-    case "UNRECOGNIZED":
+    case 'UNRECOGNIZED':
     default:
       return FieldDescriptorProto_Type.UNRECOGNIZED
   }
@@ -273,43 +270,43 @@ export function fieldDescriptorProto_TypeFromJSON(object: any): FieldDescriptorP
 export function fieldDescriptorProto_TypeToJSON(object: FieldDescriptorProto_Type): string {
   switch (object) {
     case FieldDescriptorProto_Type.TYPE_DOUBLE:
-      return "TYPE_DOUBLE"
+      return 'TYPE_DOUBLE'
     case FieldDescriptorProto_Type.TYPE_FLOAT:
-      return "TYPE_FLOAT"
+      return 'TYPE_FLOAT'
     case FieldDescriptorProto_Type.TYPE_INT64:
-      return "TYPE_INT64"
+      return 'TYPE_INT64'
     case FieldDescriptorProto_Type.TYPE_UINT64:
-      return "TYPE_UINT64"
+      return 'TYPE_UINT64'
     case FieldDescriptorProto_Type.TYPE_INT32:
-      return "TYPE_INT32"
+      return 'TYPE_INT32'
     case FieldDescriptorProto_Type.TYPE_FIXED64:
-      return "TYPE_FIXED64"
+      return 'TYPE_FIXED64'
     case FieldDescriptorProto_Type.TYPE_FIXED32:
-      return "TYPE_FIXED32"
+      return 'TYPE_FIXED32'
     case FieldDescriptorProto_Type.TYPE_BOOL:
-      return "TYPE_BOOL"
+      return 'TYPE_BOOL'
     case FieldDescriptorProto_Type.TYPE_STRING:
-      return "TYPE_STRING"
+      return 'TYPE_STRING'
     case FieldDescriptorProto_Type.TYPE_GROUP:
-      return "TYPE_GROUP"
+      return 'TYPE_GROUP'
     case FieldDescriptorProto_Type.TYPE_MESSAGE:
-      return "TYPE_MESSAGE"
+      return 'TYPE_MESSAGE'
     case FieldDescriptorProto_Type.TYPE_BYTES:
-      return "TYPE_BYTES"
+      return 'TYPE_BYTES'
     case FieldDescriptorProto_Type.TYPE_UINT32:
-      return "TYPE_UINT32"
+      return 'TYPE_UINT32'
     case FieldDescriptorProto_Type.TYPE_ENUM:
-      return "TYPE_ENUM"
+      return 'TYPE_ENUM'
     case FieldDescriptorProto_Type.TYPE_SFIXED32:
-      return "TYPE_SFIXED32"
+      return 'TYPE_SFIXED32'
     case FieldDescriptorProto_Type.TYPE_SFIXED64:
-      return "TYPE_SFIXED64"
+      return 'TYPE_SFIXED64'
     case FieldDescriptorProto_Type.TYPE_SINT32:
-      return "TYPE_SINT32"
+      return 'TYPE_SINT32'
     case FieldDescriptorProto_Type.TYPE_SINT64:
-      return "TYPE_SINT64"
+      return 'TYPE_SINT64'
     default:
-      return "UNKNOWN"
+      return 'UNKNOWN'
   }
 }
 
@@ -324,16 +321,16 @@ export enum FieldDescriptorProto_Label {
 export function fieldDescriptorProto_LabelFromJSON(object: any): FieldDescriptorProto_Label {
   switch (object) {
     case 1:
-    case "LABEL_OPTIONAL":
+    case 'LABEL_OPTIONAL':
       return FieldDescriptorProto_Label.LABEL_OPTIONAL
     case 2:
-    case "LABEL_REQUIRED":
+    case 'LABEL_REQUIRED':
       return FieldDescriptorProto_Label.LABEL_REQUIRED
     case 3:
-    case "LABEL_REPEATED":
+    case 'LABEL_REPEATED':
       return FieldDescriptorProto_Label.LABEL_REPEATED
     case -1:
-    case "UNRECOGNIZED":
+    case 'UNRECOGNIZED':
     default:
       return FieldDescriptorProto_Label.UNRECOGNIZED
   }
@@ -342,13 +339,13 @@ export function fieldDescriptorProto_LabelFromJSON(object: any): FieldDescriptor
 export function fieldDescriptorProto_LabelToJSON(object: FieldDescriptorProto_Label): string {
   switch (object) {
     case FieldDescriptorProto_Label.LABEL_OPTIONAL:
-      return "LABEL_OPTIONAL"
+      return 'LABEL_OPTIONAL'
     case FieldDescriptorProto_Label.LABEL_REQUIRED:
-      return "LABEL_REQUIRED"
+      return 'LABEL_REQUIRED'
     case FieldDescriptorProto_Label.LABEL_REPEATED:
-      return "LABEL_REPEATED"
+      return 'LABEL_REPEATED'
     default:
-      return "UNKNOWN"
+      return 'UNKNOWN'
   }
 }
 
@@ -556,16 +553,16 @@ export enum FileOptions_OptimizeMode {
 export function fileOptions_OptimizeModeFromJSON(object: any): FileOptions_OptimizeMode {
   switch (object) {
     case 1:
-    case "SPEED":
+    case 'SPEED':
       return FileOptions_OptimizeMode.SPEED
     case 2:
-    case "CODE_SIZE":
+    case 'CODE_SIZE':
       return FileOptions_OptimizeMode.CODE_SIZE
     case 3:
-    case "LITE_RUNTIME":
+    case 'LITE_RUNTIME':
       return FileOptions_OptimizeMode.LITE_RUNTIME
     case -1:
-    case "UNRECOGNIZED":
+    case 'UNRECOGNIZED':
     default:
       return FileOptions_OptimizeMode.UNRECOGNIZED
   }
@@ -574,13 +571,13 @@ export function fileOptions_OptimizeModeFromJSON(object: any): FileOptions_Optim
 export function fileOptions_OptimizeModeToJSON(object: FileOptions_OptimizeMode): string {
   switch (object) {
     case FileOptions_OptimizeMode.SPEED:
-      return "SPEED"
+      return 'SPEED'
     case FileOptions_OptimizeMode.CODE_SIZE:
-      return "CODE_SIZE"
+      return 'CODE_SIZE'
     case FileOptions_OptimizeMode.LITE_RUNTIME:
-      return "LITE_RUNTIME"
+      return 'LITE_RUNTIME'
     default:
-      return "UNKNOWN"
+      return 'UNKNOWN'
   }
 }
 
@@ -732,16 +729,16 @@ export enum FieldOptions_CType {
 export function fieldOptions_CTypeFromJSON(object: any): FieldOptions_CType {
   switch (object) {
     case 0:
-    case "STRING":
+    case 'STRING':
       return FieldOptions_CType.STRING
     case 1:
-    case "CORD":
+    case 'CORD':
       return FieldOptions_CType.CORD
     case 2:
-    case "STRING_PIECE":
+    case 'STRING_PIECE':
       return FieldOptions_CType.STRING_PIECE
     case -1:
-    case "UNRECOGNIZED":
+    case 'UNRECOGNIZED':
     default:
       return FieldOptions_CType.UNRECOGNIZED
   }
@@ -750,13 +747,13 @@ export function fieldOptions_CTypeFromJSON(object: any): FieldOptions_CType {
 export function fieldOptions_CTypeToJSON(object: FieldOptions_CType): string {
   switch (object) {
     case FieldOptions_CType.STRING:
-      return "STRING"
+      return 'STRING'
     case FieldOptions_CType.CORD:
-      return "CORD"
+      return 'CORD'
     case FieldOptions_CType.STRING_PIECE:
-      return "STRING_PIECE"
+      return 'STRING_PIECE'
     default:
-      return "UNKNOWN"
+      return 'UNKNOWN'
   }
 }
 
@@ -773,16 +770,16 @@ export enum FieldOptions_JSType {
 export function fieldOptions_JSTypeFromJSON(object: any): FieldOptions_JSType {
   switch (object) {
     case 0:
-    case "JS_NORMAL":
+    case 'JS_NORMAL':
       return FieldOptions_JSType.JS_NORMAL
     case 1:
-    case "JS_STRING":
+    case 'JS_STRING':
       return FieldOptions_JSType.JS_STRING
     case 2:
-    case "JS_NUMBER":
+    case 'JS_NUMBER':
       return FieldOptions_JSType.JS_NUMBER
     case -1:
-    case "UNRECOGNIZED":
+    case 'UNRECOGNIZED':
     default:
       return FieldOptions_JSType.UNRECOGNIZED
   }
@@ -791,13 +788,13 @@ export function fieldOptions_JSTypeFromJSON(object: any): FieldOptions_JSType {
 export function fieldOptions_JSTypeToJSON(object: FieldOptions_JSType): string {
   switch (object) {
     case FieldOptions_JSType.JS_NORMAL:
-      return "JS_NORMAL"
+      return 'JS_NORMAL'
     case FieldOptions_JSType.JS_STRING:
-      return "JS_STRING"
+      return 'JS_STRING'
     case FieldOptions_JSType.JS_NUMBER:
-      return "JS_NUMBER"
+      return 'JS_NUMBER'
     default:
-      return "UNKNOWN"
+      return 'UNKNOWN'
   }
 }
 
@@ -874,34 +871,38 @@ export enum MethodOptions_IdempotencyLevel {
   UNRECOGNIZED = -1
 }
 
-export function methodOptions_IdempotencyLevelFromJSON(object: any): MethodOptions_IdempotencyLevel {
+export function methodOptions_IdempotencyLevelFromJSON(
+  object: any
+): MethodOptions_IdempotencyLevel {
   switch (object) {
     case 0:
-    case "IDEMPOTENCY_UNKNOWN":
+    case 'IDEMPOTENCY_UNKNOWN':
       return MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN
     case 1:
-    case "NO_SIDE_EFFECTS":
+    case 'NO_SIDE_EFFECTS':
       return MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS
     case 2:
-    case "IDEMPOTENT":
+    case 'IDEMPOTENT':
       return MethodOptions_IdempotencyLevel.IDEMPOTENT
     case -1:
-    case "UNRECOGNIZED":
+    case 'UNRECOGNIZED':
     default:
       return MethodOptions_IdempotencyLevel.UNRECOGNIZED
   }
 }
 
-export function methodOptions_IdempotencyLevelToJSON(object: MethodOptions_IdempotencyLevel): string {
+export function methodOptions_IdempotencyLevelToJSON(
+  object: MethodOptions_IdempotencyLevel
+): string {
   switch (object) {
     case MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN:
-      return "IDEMPOTENCY_UNKNOWN"
+      return 'IDEMPOTENCY_UNKNOWN'
     case MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS:
-      return "NO_SIDE_EFFECTS"
+      return 'NO_SIDE_EFFECTS'
     case MethodOptions_IdempotencyLevel.IDEMPOTENT:
-      return "IDEMPOTENT"
+      return 'IDEMPOTENT'
     default:
-      return "UNKNOWN"
+      return 'UNKNOWN'
   }
 }
 
@@ -1127,7 +1128,7 @@ export const FileDescriptorSet = {
 
   decode(input: Reader | Uint8Array, length?: number): FileDescriptorSet {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseFileDescriptorSet } as FileDescriptorSet
     message.file = []
     while (reader.pos < end) {
@@ -1158,7 +1159,7 @@ export const FileDescriptorSet = {
   toJSON(message: FileDescriptorSet): unknown {
     const obj: any = {}
     if (message.file) {
-      obj.file = message.file.map(e => (e ? FileDescriptorProto.toJSON(e) : undefined))
+      obj.file = message.file.map((e) => (e ? FileDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.file = []
     }
@@ -1177,14 +1178,21 @@ export const FileDescriptorSet = {
   }
 }
 
-const baseFileDescriptorProto: object = { name: "", package: "", dependency: "", publicDependency: 0, weakDependency: 0, syntax: "" }
+const baseFileDescriptorProto: object = {
+  name: '',
+  package: '',
+  dependency: '',
+  publicDependency: 0,
+  weakDependency: 0,
+  syntax: ''
+}
 
 export const FileDescriptorProto = {
   encode(message: FileDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
-    if (message.package !== "") {
+    if (message.package !== '') {
       writer.uint32(18).string(message.package)
     }
     for (const v of message.dependency) {
@@ -1218,7 +1226,7 @@ export const FileDescriptorProto = {
     if (message.sourceCodeInfo !== undefined) {
       SourceCodeInfo.encode(message.sourceCodeInfo, writer.uint32(74).fork()).ldelim()
     }
-    if (message.syntax !== "") {
+    if (message.syntax !== '') {
       writer.uint32(98).string(message.syntax)
     }
     return writer
@@ -1226,7 +1234,7 @@ export const FileDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): FileDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseFileDescriptorProto } as FileDescriptorProto
     message.dependency = []
     message.publicDependency = []
@@ -1308,12 +1316,12 @@ export const FileDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.package !== undefined && object.package !== null) {
       message.package = String(object.package)
     } else {
-      message.package = ""
+      message.package = ''
     }
     if (object.dependency !== undefined && object.dependency !== null) {
       for (const e of object.dependency) {
@@ -1363,7 +1371,7 @@ export const FileDescriptorProto = {
     if (object.syntax !== undefined && object.syntax !== null) {
       message.syntax = String(object.syntax)
     } else {
-      message.syntax = ""
+      message.syntax = ''
     }
     return message
   },
@@ -1373,42 +1381,46 @@ export const FileDescriptorProto = {
     message.name !== undefined && (obj.name = message.name)
     message.package !== undefined && (obj.package = message.package)
     if (message.dependency) {
-      obj.dependency = message.dependency.map(e => e)
+      obj.dependency = message.dependency.map((e) => e)
     } else {
       obj.dependency = []
     }
     if (message.publicDependency) {
-      obj.publicDependency = message.publicDependency.map(e => e)
+      obj.publicDependency = message.publicDependency.map((e) => e)
     } else {
       obj.publicDependency = []
     }
     if (message.weakDependency) {
-      obj.weakDependency = message.weakDependency.map(e => e)
+      obj.weakDependency = message.weakDependency.map((e) => e)
     } else {
       obj.weakDependency = []
     }
     if (message.messageType) {
-      obj.messageType = message.messageType.map(e => (e ? DescriptorProto.toJSON(e) : undefined))
+      obj.messageType = message.messageType.map((e) => (e ? DescriptorProto.toJSON(e) : undefined))
     } else {
       obj.messageType = []
     }
     if (message.enumType) {
-      obj.enumType = message.enumType.map(e => (e ? EnumDescriptorProto.toJSON(e) : undefined))
+      obj.enumType = message.enumType.map((e) => (e ? EnumDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.enumType = []
     }
     if (message.service) {
-      obj.service = message.service.map(e => (e ? ServiceDescriptorProto.toJSON(e) : undefined))
+      obj.service = message.service.map((e) => (e ? ServiceDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.service = []
     }
     if (message.extension) {
-      obj.extension = message.extension.map(e => (e ? FieldDescriptorProto.toJSON(e) : undefined))
+      obj.extension = message.extension.map((e) => (e ? FieldDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.extension = []
     }
-    message.options !== undefined && (obj.options = message.options ? FileOptions.toJSON(message.options) : undefined)
-    message.sourceCodeInfo !== undefined && (obj.sourceCodeInfo = message.sourceCodeInfo ? SourceCodeInfo.toJSON(message.sourceCodeInfo) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? FileOptions.toJSON(message.options) : undefined)
+    message.sourceCodeInfo !== undefined &&
+      (obj.sourceCodeInfo = message.sourceCodeInfo
+        ? SourceCodeInfo.toJSON(message.sourceCodeInfo)
+        : undefined)
     message.syntax !== undefined && (obj.syntax = message.syntax)
     return obj
   },
@@ -1425,12 +1437,12 @@ export const FileDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.package !== undefined && object.package !== null) {
       message.package = object.package
     } else {
-      message.package = ""
+      message.package = ''
     }
     if (object.dependency !== undefined && object.dependency !== null) {
       for (const e of object.dependency) {
@@ -1480,17 +1492,17 @@ export const FileDescriptorProto = {
     if (object.syntax !== undefined && object.syntax !== null) {
       message.syntax = object.syntax
     } else {
-      message.syntax = ""
+      message.syntax = ''
     }
     return message
   }
 }
 
-const baseDescriptorProto: object = { name: "", reservedName: "" }
+const baseDescriptorProto: object = { name: '', reservedName: '' }
 
 export const DescriptorProto = {
   encode(message: DescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
     for (const v of message.field) {
@@ -1525,7 +1537,7 @@ export const DescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): DescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseDescriptorProto } as DescriptorProto
     message.field = []
     message.extension = []
@@ -1554,7 +1566,9 @@ export const DescriptorProto = {
           message.enumType.push(EnumDescriptorProto.decode(reader, reader.uint32()))
           break
         case 5:
-          message.extensionRange.push(DescriptorProto_ExtensionRange.decode(reader, reader.uint32()))
+          message.extensionRange.push(
+            DescriptorProto_ExtensionRange.decode(reader, reader.uint32())
+          )
           break
         case 8:
           message.oneofDecl.push(OneofDescriptorProto.decode(reader, reader.uint32()))
@@ -1589,7 +1603,7 @@ export const DescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.field !== undefined && object.field !== null) {
       for (const e of object.field) {
@@ -1643,43 +1657,48 @@ export const DescriptorProto = {
     const obj: any = {}
     message.name !== undefined && (obj.name = message.name)
     if (message.field) {
-      obj.field = message.field.map(e => (e ? FieldDescriptorProto.toJSON(e) : undefined))
+      obj.field = message.field.map((e) => (e ? FieldDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.field = []
     }
     if (message.extension) {
-      obj.extension = message.extension.map(e => (e ? FieldDescriptorProto.toJSON(e) : undefined))
+      obj.extension = message.extension.map((e) => (e ? FieldDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.extension = []
     }
     if (message.nestedType) {
-      obj.nestedType = message.nestedType.map(e => (e ? DescriptorProto.toJSON(e) : undefined))
+      obj.nestedType = message.nestedType.map((e) => (e ? DescriptorProto.toJSON(e) : undefined))
     } else {
       obj.nestedType = []
     }
     if (message.enumType) {
-      obj.enumType = message.enumType.map(e => (e ? EnumDescriptorProto.toJSON(e) : undefined))
+      obj.enumType = message.enumType.map((e) => (e ? EnumDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.enumType = []
     }
     if (message.extensionRange) {
-      obj.extensionRange = message.extensionRange.map(e => (e ? DescriptorProto_ExtensionRange.toJSON(e) : undefined))
+      obj.extensionRange = message.extensionRange.map((e) =>
+        e ? DescriptorProto_ExtensionRange.toJSON(e) : undefined
+      )
     } else {
       obj.extensionRange = []
     }
     if (message.oneofDecl) {
-      obj.oneofDecl = message.oneofDecl.map(e => (e ? OneofDescriptorProto.toJSON(e) : undefined))
+      obj.oneofDecl = message.oneofDecl.map((e) => (e ? OneofDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.oneofDecl = []
     }
-    message.options !== undefined && (obj.options = message.options ? MessageOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? MessageOptions.toJSON(message.options) : undefined)
     if (message.reservedRange) {
-      obj.reservedRange = message.reservedRange.map(e => (e ? DescriptorProto_ReservedRange.toJSON(e) : undefined))
+      obj.reservedRange = message.reservedRange.map((e) =>
+        e ? DescriptorProto_ReservedRange.toJSON(e) : undefined
+      )
     } else {
       obj.reservedRange = []
     }
     if (message.reservedName) {
-      obj.reservedName = message.reservedName.map(e => e)
+      obj.reservedName = message.reservedName.map((e) => e)
     } else {
       obj.reservedName = []
     }
@@ -1699,7 +1718,7 @@ export const DescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.field !== undefined && object.field !== null) {
       for (const e of object.field) {
@@ -1768,7 +1787,7 @@ export const DescriptorProto_ExtensionRange = {
 
   decode(input: Reader | Uint8Array, length?: number): DescriptorProto_ExtensionRange {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseDescriptorProto_ExtensionRange } as DescriptorProto_ExtensionRange
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -1814,7 +1833,8 @@ export const DescriptorProto_ExtensionRange = {
     const obj: any = {}
     message.start !== undefined && (obj.start = message.start)
     message.end !== undefined && (obj.end = message.end)
-    message.options !== undefined && (obj.options = message.options ? ExtensionRangeOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? ExtensionRangeOptions.toJSON(message.options) : undefined)
     return obj
   },
 
@@ -1854,7 +1874,7 @@ export const DescriptorProto_ReservedRange = {
 
   decode(input: Reader | Uint8Array, length?: number): DescriptorProto_ReservedRange {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseDescriptorProto_ReservedRange } as DescriptorProto_ReservedRange
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -1923,7 +1943,7 @@ export const ExtensionRangeOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): ExtensionRangeOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseExtensionRangeOptions } as ExtensionRangeOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -1954,7 +1974,9 @@ export const ExtensionRangeOptions = {
   toJSON(message: ExtensionRangeOptions): unknown {
     const obj: any = {}
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -1974,21 +1996,21 @@ export const ExtensionRangeOptions = {
 }
 
 const baseFieldDescriptorProto: object = {
-  name: "",
+  name: '',
   number: 0,
   label: 1,
   type: 1,
-  typeName: "",
-  extendee: "",
-  defaultValue: "",
+  typeName: '',
+  extendee: '',
+  defaultValue: '',
   oneofIndex: 0,
-  jsonName: "",
+  jsonName: '',
   proto3Optional: false
 }
 
 export const FieldDescriptorProto = {
   encode(message: FieldDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
     if (message.number !== 0) {
@@ -2000,19 +2022,19 @@ export const FieldDescriptorProto = {
     if (message.type !== 1) {
       writer.uint32(40).int32(message.type)
     }
-    if (message.typeName !== "") {
+    if (message.typeName !== '') {
       writer.uint32(50).string(message.typeName)
     }
-    if (message.extendee !== "") {
+    if (message.extendee !== '') {
       writer.uint32(18).string(message.extendee)
     }
-    if (message.defaultValue !== "") {
+    if (message.defaultValue !== '') {
       writer.uint32(58).string(message.defaultValue)
     }
     if (message.oneofIndex !== 0) {
       writer.uint32(72).int32(message.oneofIndex)
     }
-    if (message.jsonName !== "") {
+    if (message.jsonName !== '') {
       writer.uint32(82).string(message.jsonName)
     }
     if (message.options !== undefined) {
@@ -2026,7 +2048,7 @@ export const FieldDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): FieldDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseFieldDescriptorProto } as FieldDescriptorProto
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -2077,7 +2099,7 @@ export const FieldDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.number !== undefined && object.number !== null) {
       message.number = Number(object.number)
@@ -2097,17 +2119,17 @@ export const FieldDescriptorProto = {
     if (object.typeName !== undefined && object.typeName !== null) {
       message.typeName = String(object.typeName)
     } else {
-      message.typeName = ""
+      message.typeName = ''
     }
     if (object.extendee !== undefined && object.extendee !== null) {
       message.extendee = String(object.extendee)
     } else {
-      message.extendee = ""
+      message.extendee = ''
     }
     if (object.defaultValue !== undefined && object.defaultValue !== null) {
       message.defaultValue = String(object.defaultValue)
     } else {
-      message.defaultValue = ""
+      message.defaultValue = ''
     }
     if (object.oneofIndex !== undefined && object.oneofIndex !== null) {
       message.oneofIndex = Number(object.oneofIndex)
@@ -2117,7 +2139,7 @@ export const FieldDescriptorProto = {
     if (object.jsonName !== undefined && object.jsonName !== null) {
       message.jsonName = String(object.jsonName)
     } else {
-      message.jsonName = ""
+      message.jsonName = ''
     }
     if (object.options !== undefined && object.options !== null) {
       message.options = FieldOptions.fromJSON(object.options)
@@ -2143,7 +2165,8 @@ export const FieldDescriptorProto = {
     message.defaultValue !== undefined && (obj.defaultValue = message.defaultValue)
     message.oneofIndex !== undefined && (obj.oneofIndex = message.oneofIndex)
     message.jsonName !== undefined && (obj.jsonName = message.jsonName)
-    message.options !== undefined && (obj.options = message.options ? FieldOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? FieldOptions.toJSON(message.options) : undefined)
     message.proto3Optional !== undefined && (obj.proto3Optional = message.proto3Optional)
     return obj
   },
@@ -2153,7 +2176,7 @@ export const FieldDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.number !== undefined && object.number !== null) {
       message.number = object.number
@@ -2173,17 +2196,17 @@ export const FieldDescriptorProto = {
     if (object.typeName !== undefined && object.typeName !== null) {
       message.typeName = object.typeName
     } else {
-      message.typeName = ""
+      message.typeName = ''
     }
     if (object.extendee !== undefined && object.extendee !== null) {
       message.extendee = object.extendee
     } else {
-      message.extendee = ""
+      message.extendee = ''
     }
     if (object.defaultValue !== undefined && object.defaultValue !== null) {
       message.defaultValue = object.defaultValue
     } else {
-      message.defaultValue = ""
+      message.defaultValue = ''
     }
     if (object.oneofIndex !== undefined && object.oneofIndex !== null) {
       message.oneofIndex = object.oneofIndex
@@ -2193,7 +2216,7 @@ export const FieldDescriptorProto = {
     if (object.jsonName !== undefined && object.jsonName !== null) {
       message.jsonName = object.jsonName
     } else {
-      message.jsonName = ""
+      message.jsonName = ''
     }
     if (object.options !== undefined && object.options !== null) {
       message.options = FieldOptions.fromPartial(object.options)
@@ -2209,11 +2232,11 @@ export const FieldDescriptorProto = {
   }
 }
 
-const baseOneofDescriptorProto: object = { name: "" }
+const baseOneofDescriptorProto: object = { name: '' }
 
 export const OneofDescriptorProto = {
   encode(message: OneofDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
     if (message.options !== undefined) {
@@ -2224,7 +2247,7 @@ export const OneofDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): OneofDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseOneofDescriptorProto } as OneofDescriptorProto
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -2248,7 +2271,7 @@ export const OneofDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.options !== undefined && object.options !== null) {
       message.options = OneofOptions.fromJSON(object.options)
@@ -2261,7 +2284,8 @@ export const OneofDescriptorProto = {
   toJSON(message: OneofDescriptorProto): unknown {
     const obj: any = {}
     message.name !== undefined && (obj.name = message.name)
-    message.options !== undefined && (obj.options = message.options ? OneofOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? OneofOptions.toJSON(message.options) : undefined)
     return obj
   },
 
@@ -2270,7 +2294,7 @@ export const OneofDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.options !== undefined && object.options !== null) {
       message.options = OneofOptions.fromPartial(object.options)
@@ -2281,11 +2305,11 @@ export const OneofDescriptorProto = {
   }
 }
 
-const baseEnumDescriptorProto: object = { name: "", reservedName: "" }
+const baseEnumDescriptorProto: object = { name: '', reservedName: '' }
 
 export const EnumDescriptorProto = {
   encode(message: EnumDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
     for (const v of message.value) {
@@ -2305,7 +2329,7 @@ export const EnumDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): EnumDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseEnumDescriptorProto } as EnumDescriptorProto
     message.value = []
     message.reservedRange = []
@@ -2323,7 +2347,9 @@ export const EnumDescriptorProto = {
           message.options = EnumOptions.decode(reader, reader.uint32())
           break
         case 4:
-          message.reservedRange.push(EnumDescriptorProto_EnumReservedRange.decode(reader, reader.uint32()))
+          message.reservedRange.push(
+            EnumDescriptorProto_EnumReservedRange.decode(reader, reader.uint32())
+          )
           break
         case 5:
           message.reservedName.push(reader.string())
@@ -2344,7 +2370,7 @@ export const EnumDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.value !== undefined && object.value !== null) {
       for (const e of object.value) {
@@ -2373,18 +2399,21 @@ export const EnumDescriptorProto = {
     const obj: any = {}
     message.name !== undefined && (obj.name = message.name)
     if (message.value) {
-      obj.value = message.value.map(e => (e ? EnumValueDescriptorProto.toJSON(e) : undefined))
+      obj.value = message.value.map((e) => (e ? EnumValueDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.value = []
     }
-    message.options !== undefined && (obj.options = message.options ? EnumOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? EnumOptions.toJSON(message.options) : undefined)
     if (message.reservedRange) {
-      obj.reservedRange = message.reservedRange.map(e => (e ? EnumDescriptorProto_EnumReservedRange.toJSON(e) : undefined))
+      obj.reservedRange = message.reservedRange.map((e) =>
+        e ? EnumDescriptorProto_EnumReservedRange.toJSON(e) : undefined
+      )
     } else {
       obj.reservedRange = []
     }
     if (message.reservedName) {
-      obj.reservedName = message.reservedName.map(e => e)
+      obj.reservedName = message.reservedName.map((e) => e)
     } else {
       obj.reservedName = []
     }
@@ -2399,7 +2428,7 @@ export const EnumDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.value !== undefined && object.value !== null) {
       for (const e of object.value) {
@@ -2440,8 +2469,10 @@ export const EnumDescriptorProto_EnumReservedRange = {
 
   decode(input: Reader | Uint8Array, length?: number): EnumDescriptorProto_EnumReservedRange {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseEnumDescriptorProto_EnumReservedRange } as EnumDescriptorProto_EnumReservedRange
+    let end = length === undefined ? reader.len : reader.pos + length
+    const message = {
+      ...baseEnumDescriptorProto_EnumReservedRange
+    } as EnumDescriptorProto_EnumReservedRange
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -2460,7 +2491,9 @@ export const EnumDescriptorProto_EnumReservedRange = {
   },
 
   fromJSON(object: any): EnumDescriptorProto_EnumReservedRange {
-    const message = { ...baseEnumDescriptorProto_EnumReservedRange } as EnumDescriptorProto_EnumReservedRange
+    const message = {
+      ...baseEnumDescriptorProto_EnumReservedRange
+    } as EnumDescriptorProto_EnumReservedRange
     if (object.start !== undefined && object.start !== null) {
       message.start = Number(object.start)
     } else {
@@ -2481,8 +2514,12 @@ export const EnumDescriptorProto_EnumReservedRange = {
     return obj
   },
 
-  fromPartial(object: DeepPartial<EnumDescriptorProto_EnumReservedRange>): EnumDescriptorProto_EnumReservedRange {
-    const message = { ...baseEnumDescriptorProto_EnumReservedRange } as EnumDescriptorProto_EnumReservedRange
+  fromPartial(
+    object: DeepPartial<EnumDescriptorProto_EnumReservedRange>
+  ): EnumDescriptorProto_EnumReservedRange {
+    const message = {
+      ...baseEnumDescriptorProto_EnumReservedRange
+    } as EnumDescriptorProto_EnumReservedRange
     if (object.start !== undefined && object.start !== null) {
       message.start = object.start
     } else {
@@ -2497,11 +2534,11 @@ export const EnumDescriptorProto_EnumReservedRange = {
   }
 }
 
-const baseEnumValueDescriptorProto: object = { name: "", number: 0 }
+const baseEnumValueDescriptorProto: object = { name: '', number: 0 }
 
 export const EnumValueDescriptorProto = {
   encode(message: EnumValueDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
     if (message.number !== 0) {
@@ -2515,7 +2552,7 @@ export const EnumValueDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): EnumValueDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseEnumValueDescriptorProto } as EnumValueDescriptorProto
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -2542,7 +2579,7 @@ export const EnumValueDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.number !== undefined && object.number !== null) {
       message.number = Number(object.number)
@@ -2561,7 +2598,8 @@ export const EnumValueDescriptorProto = {
     const obj: any = {}
     message.name !== undefined && (obj.name = message.name)
     message.number !== undefined && (obj.number = message.number)
-    message.options !== undefined && (obj.options = message.options ? EnumValueOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? EnumValueOptions.toJSON(message.options) : undefined)
     return obj
   },
 
@@ -2570,7 +2608,7 @@ export const EnumValueDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.number !== undefined && object.number !== null) {
       message.number = object.number
@@ -2586,11 +2624,11 @@ export const EnumValueDescriptorProto = {
   }
 }
 
-const baseServiceDescriptorProto: object = { name: "" }
+const baseServiceDescriptorProto: object = { name: '' }
 
 export const ServiceDescriptorProto = {
   encode(message: ServiceDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
     for (const v of message.method) {
@@ -2604,7 +2642,7 @@ export const ServiceDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): ServiceDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseServiceDescriptorProto } as ServiceDescriptorProto
     message.method = []
     while (reader.pos < end) {
@@ -2633,7 +2671,7 @@ export const ServiceDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.method !== undefined && object.method !== null) {
       for (const e of object.method) {
@@ -2652,11 +2690,12 @@ export const ServiceDescriptorProto = {
     const obj: any = {}
     message.name !== undefined && (obj.name = message.name)
     if (message.method) {
-      obj.method = message.method.map(e => (e ? MethodDescriptorProto.toJSON(e) : undefined))
+      obj.method = message.method.map((e) => (e ? MethodDescriptorProto.toJSON(e) : undefined))
     } else {
       obj.method = []
     }
-    message.options !== undefined && (obj.options = message.options ? ServiceOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? ServiceOptions.toJSON(message.options) : undefined)
     return obj
   },
 
@@ -2666,7 +2705,7 @@ export const ServiceDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.method !== undefined && object.method !== null) {
       for (const e of object.method) {
@@ -2682,17 +2721,23 @@ export const ServiceDescriptorProto = {
   }
 }
 
-const baseMethodDescriptorProto: object = { name: "", inputType: "", outputType: "", clientStreaming: false, serverStreaming: false }
+const baseMethodDescriptorProto: object = {
+  name: '',
+  inputType: '',
+  outputType: '',
+  clientStreaming: false,
+  serverStreaming: false
+}
 
 export const MethodDescriptorProto = {
   encode(message: MethodDescriptorProto, writer: Writer = Writer.create()): Writer {
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(10).string(message.name)
     }
-    if (message.inputType !== "") {
+    if (message.inputType !== '') {
       writer.uint32(18).string(message.inputType)
     }
-    if (message.outputType !== "") {
+    if (message.outputType !== '') {
       writer.uint32(26).string(message.outputType)
     }
     if (message.options !== undefined) {
@@ -2709,7 +2754,7 @@ export const MethodDescriptorProto = {
 
   decode(input: Reader | Uint8Array, length?: number): MethodDescriptorProto {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMethodDescriptorProto } as MethodDescriptorProto
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -2745,17 +2790,17 @@ export const MethodDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = String(object.name)
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.inputType !== undefined && object.inputType !== null) {
       message.inputType = String(object.inputType)
     } else {
-      message.inputType = ""
+      message.inputType = ''
     }
     if (object.outputType !== undefined && object.outputType !== null) {
       message.outputType = String(object.outputType)
     } else {
-      message.outputType = ""
+      message.outputType = ''
     }
     if (object.options !== undefined && object.options !== null) {
       message.options = MethodOptions.fromJSON(object.options)
@@ -2780,7 +2825,8 @@ export const MethodDescriptorProto = {
     message.name !== undefined && (obj.name = message.name)
     message.inputType !== undefined && (obj.inputType = message.inputType)
     message.outputType !== undefined && (obj.outputType = message.outputType)
-    message.options !== undefined && (obj.options = message.options ? MethodOptions.toJSON(message.options) : undefined)
+    message.options !== undefined &&
+      (obj.options = message.options ? MethodOptions.toJSON(message.options) : undefined)
     message.clientStreaming !== undefined && (obj.clientStreaming = message.clientStreaming)
     message.serverStreaming !== undefined && (obj.serverStreaming = message.serverStreaming)
     return obj
@@ -2791,17 +2837,17 @@ export const MethodDescriptorProto = {
     if (object.name !== undefined && object.name !== null) {
       message.name = object.name
     } else {
-      message.name = ""
+      message.name = ''
     }
     if (object.inputType !== undefined && object.inputType !== null) {
       message.inputType = object.inputType
     } else {
-      message.inputType = ""
+      message.inputType = ''
     }
     if (object.outputType !== undefined && object.outputType !== null) {
       message.outputType = object.outputType
     } else {
-      message.outputType = ""
+      message.outputType = ''
     }
     if (object.options !== undefined && object.options !== null) {
       message.options = MethodOptions.fromPartial(object.options)
@@ -2823,34 +2869,34 @@ export const MethodDescriptorProto = {
 }
 
 const baseFileOptions: object = {
-  javaPackage: "",
-  javaOuterClassname: "",
+  javaPackage: '',
+  javaOuterClassname: '',
   javaMultipleFiles: false,
   javaGenerateEqualsAndHash: false,
   javaStringCheckUtf8: false,
   optimizeFor: 1,
-  goPackage: "",
+  goPackage: '',
   ccGenericServices: false,
   javaGenericServices: false,
   pyGenericServices: false,
   phpGenericServices: false,
   deprecated: false,
   ccEnableArenas: false,
-  objcClassPrefix: "",
-  csharpNamespace: "",
-  swiftPrefix: "",
-  phpClassPrefix: "",
-  phpNamespace: "",
-  phpMetadataNamespace: "",
-  rubyPackage: ""
+  objcClassPrefix: '',
+  csharpNamespace: '',
+  swiftPrefix: '',
+  phpClassPrefix: '',
+  phpNamespace: '',
+  phpMetadataNamespace: '',
+  rubyPackage: ''
 }
 
 export const FileOptions = {
   encode(message: FileOptions, writer: Writer = Writer.create()): Writer {
-    if (message.javaPackage !== "") {
+    if (message.javaPackage !== '') {
       writer.uint32(10).string(message.javaPackage)
     }
-    if (message.javaOuterClassname !== "") {
+    if (message.javaOuterClassname !== '') {
       writer.uint32(66).string(message.javaOuterClassname)
     }
     if (message.javaMultipleFiles === true) {
@@ -2865,7 +2911,7 @@ export const FileOptions = {
     if (message.optimizeFor !== 1) {
       writer.uint32(72).int32(message.optimizeFor)
     }
-    if (message.goPackage !== "") {
+    if (message.goPackage !== '') {
       writer.uint32(90).string(message.goPackage)
     }
     if (message.ccGenericServices === true) {
@@ -2886,25 +2932,25 @@ export const FileOptions = {
     if (message.ccEnableArenas === true) {
       writer.uint32(248).bool(message.ccEnableArenas)
     }
-    if (message.objcClassPrefix !== "") {
+    if (message.objcClassPrefix !== '') {
       writer.uint32(290).string(message.objcClassPrefix)
     }
-    if (message.csharpNamespace !== "") {
+    if (message.csharpNamespace !== '') {
       writer.uint32(298).string(message.csharpNamespace)
     }
-    if (message.swiftPrefix !== "") {
+    if (message.swiftPrefix !== '') {
       writer.uint32(314).string(message.swiftPrefix)
     }
-    if (message.phpClassPrefix !== "") {
+    if (message.phpClassPrefix !== '') {
       writer.uint32(322).string(message.phpClassPrefix)
     }
-    if (message.phpNamespace !== "") {
+    if (message.phpNamespace !== '') {
       writer.uint32(330).string(message.phpNamespace)
     }
-    if (message.phpMetadataNamespace !== "") {
+    if (message.phpMetadataNamespace !== '') {
       writer.uint32(354).string(message.phpMetadataNamespace)
     }
-    if (message.rubyPackage !== "") {
+    if (message.rubyPackage !== '') {
       writer.uint32(362).string(message.rubyPackage)
     }
     for (const v of message.uninterpretedOption) {
@@ -2915,7 +2961,7 @@ export const FileOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): FileOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseFileOptions } as FileOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -2998,19 +3044,22 @@ export const FileOptions = {
     if (object.javaPackage !== undefined && object.javaPackage !== null) {
       message.javaPackage = String(object.javaPackage)
     } else {
-      message.javaPackage = ""
+      message.javaPackage = ''
     }
     if (object.javaOuterClassname !== undefined && object.javaOuterClassname !== null) {
       message.javaOuterClassname = String(object.javaOuterClassname)
     } else {
-      message.javaOuterClassname = ""
+      message.javaOuterClassname = ''
     }
     if (object.javaMultipleFiles !== undefined && object.javaMultipleFiles !== null) {
       message.javaMultipleFiles = Boolean(object.javaMultipleFiles)
     } else {
       message.javaMultipleFiles = false
     }
-    if (object.javaGenerateEqualsAndHash !== undefined && object.javaGenerateEqualsAndHash !== null) {
+    if (
+      object.javaGenerateEqualsAndHash !== undefined &&
+      object.javaGenerateEqualsAndHash !== null
+    ) {
       message.javaGenerateEqualsAndHash = Boolean(object.javaGenerateEqualsAndHash)
     } else {
       message.javaGenerateEqualsAndHash = false
@@ -3028,7 +3077,7 @@ export const FileOptions = {
     if (object.goPackage !== undefined && object.goPackage !== null) {
       message.goPackage = String(object.goPackage)
     } else {
-      message.goPackage = ""
+      message.goPackage = ''
     }
     if (object.ccGenericServices !== undefined && object.ccGenericServices !== null) {
       message.ccGenericServices = Boolean(object.ccGenericServices)
@@ -3063,37 +3112,37 @@ export const FileOptions = {
     if (object.objcClassPrefix !== undefined && object.objcClassPrefix !== null) {
       message.objcClassPrefix = String(object.objcClassPrefix)
     } else {
-      message.objcClassPrefix = ""
+      message.objcClassPrefix = ''
     }
     if (object.csharpNamespace !== undefined && object.csharpNamespace !== null) {
       message.csharpNamespace = String(object.csharpNamespace)
     } else {
-      message.csharpNamespace = ""
+      message.csharpNamespace = ''
     }
     if (object.swiftPrefix !== undefined && object.swiftPrefix !== null) {
       message.swiftPrefix = String(object.swiftPrefix)
     } else {
-      message.swiftPrefix = ""
+      message.swiftPrefix = ''
     }
     if (object.phpClassPrefix !== undefined && object.phpClassPrefix !== null) {
       message.phpClassPrefix = String(object.phpClassPrefix)
     } else {
-      message.phpClassPrefix = ""
+      message.phpClassPrefix = ''
     }
     if (object.phpNamespace !== undefined && object.phpNamespace !== null) {
       message.phpNamespace = String(object.phpNamespace)
     } else {
-      message.phpNamespace = ""
+      message.phpNamespace = ''
     }
     if (object.phpMetadataNamespace !== undefined && object.phpMetadataNamespace !== null) {
       message.phpMetadataNamespace = String(object.phpMetadataNamespace)
     } else {
-      message.phpMetadataNamespace = ""
+      message.phpMetadataNamespace = ''
     }
     if (object.rubyPackage !== undefined && object.rubyPackage !== null) {
       message.rubyPackage = String(object.rubyPackage)
     } else {
-      message.rubyPackage = ""
+      message.rubyPackage = ''
     }
     if (object.uninterpretedOption !== undefined && object.uninterpretedOption !== null) {
       for (const e of object.uninterpretedOption) {
@@ -3106,16 +3155,22 @@ export const FileOptions = {
   toJSON(message: FileOptions): unknown {
     const obj: any = {}
     message.javaPackage !== undefined && (obj.javaPackage = message.javaPackage)
-    message.javaOuterClassname !== undefined && (obj.javaOuterClassname = message.javaOuterClassname)
+    message.javaOuterClassname !== undefined &&
+      (obj.javaOuterClassname = message.javaOuterClassname)
     message.javaMultipleFiles !== undefined && (obj.javaMultipleFiles = message.javaMultipleFiles)
-    message.javaGenerateEqualsAndHash !== undefined && (obj.javaGenerateEqualsAndHash = message.javaGenerateEqualsAndHash)
-    message.javaStringCheckUtf8 !== undefined && (obj.javaStringCheckUtf8 = message.javaStringCheckUtf8)
-    message.optimizeFor !== undefined && (obj.optimizeFor = fileOptions_OptimizeModeToJSON(message.optimizeFor))
+    message.javaGenerateEqualsAndHash !== undefined &&
+      (obj.javaGenerateEqualsAndHash = message.javaGenerateEqualsAndHash)
+    message.javaStringCheckUtf8 !== undefined &&
+      (obj.javaStringCheckUtf8 = message.javaStringCheckUtf8)
+    message.optimizeFor !== undefined &&
+      (obj.optimizeFor = fileOptions_OptimizeModeToJSON(message.optimizeFor))
     message.goPackage !== undefined && (obj.goPackage = message.goPackage)
     message.ccGenericServices !== undefined && (obj.ccGenericServices = message.ccGenericServices)
-    message.javaGenericServices !== undefined && (obj.javaGenericServices = message.javaGenericServices)
+    message.javaGenericServices !== undefined &&
+      (obj.javaGenericServices = message.javaGenericServices)
     message.pyGenericServices !== undefined && (obj.pyGenericServices = message.pyGenericServices)
-    message.phpGenericServices !== undefined && (obj.phpGenericServices = message.phpGenericServices)
+    message.phpGenericServices !== undefined &&
+      (obj.phpGenericServices = message.phpGenericServices)
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
     message.ccEnableArenas !== undefined && (obj.ccEnableArenas = message.ccEnableArenas)
     message.objcClassPrefix !== undefined && (obj.objcClassPrefix = message.objcClassPrefix)
@@ -3123,10 +3178,13 @@ export const FileOptions = {
     message.swiftPrefix !== undefined && (obj.swiftPrefix = message.swiftPrefix)
     message.phpClassPrefix !== undefined && (obj.phpClassPrefix = message.phpClassPrefix)
     message.phpNamespace !== undefined && (obj.phpNamespace = message.phpNamespace)
-    message.phpMetadataNamespace !== undefined && (obj.phpMetadataNamespace = message.phpMetadataNamespace)
+    message.phpMetadataNamespace !== undefined &&
+      (obj.phpMetadataNamespace = message.phpMetadataNamespace)
     message.rubyPackage !== undefined && (obj.rubyPackage = message.rubyPackage)
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3139,19 +3197,22 @@ export const FileOptions = {
     if (object.javaPackage !== undefined && object.javaPackage !== null) {
       message.javaPackage = object.javaPackage
     } else {
-      message.javaPackage = ""
+      message.javaPackage = ''
     }
     if (object.javaOuterClassname !== undefined && object.javaOuterClassname !== null) {
       message.javaOuterClassname = object.javaOuterClassname
     } else {
-      message.javaOuterClassname = ""
+      message.javaOuterClassname = ''
     }
     if (object.javaMultipleFiles !== undefined && object.javaMultipleFiles !== null) {
       message.javaMultipleFiles = object.javaMultipleFiles
     } else {
       message.javaMultipleFiles = false
     }
-    if (object.javaGenerateEqualsAndHash !== undefined && object.javaGenerateEqualsAndHash !== null) {
+    if (
+      object.javaGenerateEqualsAndHash !== undefined &&
+      object.javaGenerateEqualsAndHash !== null
+    ) {
       message.javaGenerateEqualsAndHash = object.javaGenerateEqualsAndHash
     } else {
       message.javaGenerateEqualsAndHash = false
@@ -3169,7 +3230,7 @@ export const FileOptions = {
     if (object.goPackage !== undefined && object.goPackage !== null) {
       message.goPackage = object.goPackage
     } else {
-      message.goPackage = ""
+      message.goPackage = ''
     }
     if (object.ccGenericServices !== undefined && object.ccGenericServices !== null) {
       message.ccGenericServices = object.ccGenericServices
@@ -3204,37 +3265,37 @@ export const FileOptions = {
     if (object.objcClassPrefix !== undefined && object.objcClassPrefix !== null) {
       message.objcClassPrefix = object.objcClassPrefix
     } else {
-      message.objcClassPrefix = ""
+      message.objcClassPrefix = ''
     }
     if (object.csharpNamespace !== undefined && object.csharpNamespace !== null) {
       message.csharpNamespace = object.csharpNamespace
     } else {
-      message.csharpNamespace = ""
+      message.csharpNamespace = ''
     }
     if (object.swiftPrefix !== undefined && object.swiftPrefix !== null) {
       message.swiftPrefix = object.swiftPrefix
     } else {
-      message.swiftPrefix = ""
+      message.swiftPrefix = ''
     }
     if (object.phpClassPrefix !== undefined && object.phpClassPrefix !== null) {
       message.phpClassPrefix = object.phpClassPrefix
     } else {
-      message.phpClassPrefix = ""
+      message.phpClassPrefix = ''
     }
     if (object.phpNamespace !== undefined && object.phpNamespace !== null) {
       message.phpNamespace = object.phpNamespace
     } else {
-      message.phpNamespace = ""
+      message.phpNamespace = ''
     }
     if (object.phpMetadataNamespace !== undefined && object.phpMetadataNamespace !== null) {
       message.phpMetadataNamespace = object.phpMetadataNamespace
     } else {
-      message.phpMetadataNamespace = ""
+      message.phpMetadataNamespace = ''
     }
     if (object.rubyPackage !== undefined && object.rubyPackage !== null) {
       message.rubyPackage = object.rubyPackage
     } else {
-      message.rubyPackage = ""
+      message.rubyPackage = ''
     }
     if (object.uninterpretedOption !== undefined && object.uninterpretedOption !== null) {
       for (const e of object.uninterpretedOption) {
@@ -3245,7 +3306,12 @@ export const FileOptions = {
   }
 }
 
-const baseMessageOptions: object = { messageSetWireFormat: false, noStandardDescriptorAccessor: false, deprecated: false, mapEntry: false }
+const baseMessageOptions: object = {
+  messageSetWireFormat: false,
+  noStandardDescriptorAccessor: false,
+  deprecated: false,
+  mapEntry: false
+}
 
 export const MessageOptions = {
   encode(message: MessageOptions, writer: Writer = Writer.create()): Writer {
@@ -3269,7 +3335,7 @@ export const MessageOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): MessageOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMessageOptions } as MessageOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3306,7 +3372,10 @@ export const MessageOptions = {
     } else {
       message.messageSetWireFormat = false
     }
-    if (object.noStandardDescriptorAccessor !== undefined && object.noStandardDescriptorAccessor !== null) {
+    if (
+      object.noStandardDescriptorAccessor !== undefined &&
+      object.noStandardDescriptorAccessor !== null
+    ) {
       message.noStandardDescriptorAccessor = Boolean(object.noStandardDescriptorAccessor)
     } else {
       message.noStandardDescriptorAccessor = false
@@ -3331,12 +3400,16 @@ export const MessageOptions = {
 
   toJSON(message: MessageOptions): unknown {
     const obj: any = {}
-    message.messageSetWireFormat !== undefined && (obj.messageSetWireFormat = message.messageSetWireFormat)
-    message.noStandardDescriptorAccessor !== undefined && (obj.noStandardDescriptorAccessor = message.noStandardDescriptorAccessor)
+    message.messageSetWireFormat !== undefined &&
+      (obj.messageSetWireFormat = message.messageSetWireFormat)
+    message.noStandardDescriptorAccessor !== undefined &&
+      (obj.noStandardDescriptorAccessor = message.noStandardDescriptorAccessor)
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
     message.mapEntry !== undefined && (obj.mapEntry = message.mapEntry)
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3351,7 +3424,10 @@ export const MessageOptions = {
     } else {
       message.messageSetWireFormat = false
     }
-    if (object.noStandardDescriptorAccessor !== undefined && object.noStandardDescriptorAccessor !== null) {
+    if (
+      object.noStandardDescriptorAccessor !== undefined &&
+      object.noStandardDescriptorAccessor !== null
+    ) {
       message.noStandardDescriptorAccessor = object.noStandardDescriptorAccessor
     } else {
       message.noStandardDescriptorAccessor = false
@@ -3375,7 +3451,14 @@ export const MessageOptions = {
   }
 }
 
-const baseFieldOptions: object = { ctype: 0, packed: false, jstype: 0, lazy: false, deprecated: false, weak: false }
+const baseFieldOptions: object = {
+  ctype: 0,
+  packed: false,
+  jstype: 0,
+  lazy: false,
+  deprecated: false,
+  weak: false
+}
 
 export const FieldOptions = {
   encode(message: FieldOptions, writer: Writer = Writer.create()): Writer {
@@ -3405,7 +3488,7 @@ export const FieldOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): FieldOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseFieldOptions } as FieldOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3490,7 +3573,9 @@ export const FieldOptions = {
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
     message.weak !== undefined && (obj.weak = message.weak)
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3551,7 +3636,7 @@ export const OneofOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): OneofOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseOneofOptions } as OneofOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3582,7 +3667,9 @@ export const OneofOptions = {
   toJSON(message: OneofOptions): unknown {
     const obj: any = {}
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3619,7 +3706,7 @@ export const EnumOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): EnumOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseEnumOptions } as EnumOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3668,7 +3755,9 @@ export const EnumOptions = {
     message.allowAlias !== undefined && (obj.allowAlias = message.allowAlias)
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3712,7 +3801,7 @@ export const EnumValueOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): EnumValueOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseEnumValueOptions } as EnumValueOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3752,7 +3841,9 @@ export const EnumValueOptions = {
     const obj: any = {}
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3791,7 +3882,7 @@ export const ServiceOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): ServiceOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseServiceOptions } as ServiceOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3831,7 +3922,9 @@ export const ServiceOptions = {
     const obj: any = {}
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3873,7 +3966,7 @@ export const MethodOptions = {
 
   decode(input: Reader | Uint8Array, length?: number): MethodOptions {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMethodOptions } as MethodOptions
     message.uninterpretedOption = []
     while (reader.pos < end) {
@@ -3920,9 +4013,12 @@ export const MethodOptions = {
   toJSON(message: MethodOptions): unknown {
     const obj: any = {}
     message.deprecated !== undefined && (obj.deprecated = message.deprecated)
-    message.idempotencyLevel !== undefined && (obj.idempotencyLevel = methodOptions_IdempotencyLevelToJSON(message.idempotencyLevel))
+    message.idempotencyLevel !== undefined &&
+      (obj.idempotencyLevel = methodOptions_IdempotencyLevelToJSON(message.idempotencyLevel))
     if (message.uninterpretedOption) {
-      obj.uninterpretedOption = message.uninterpretedOption.map(e => (e ? UninterpretedOption.toJSON(e) : undefined))
+      obj.uninterpretedOption = message.uninterpretedOption.map((e) =>
+        e ? UninterpretedOption.toJSON(e) : undefined
+      )
     } else {
       obj.uninterpretedOption = []
     }
@@ -3951,14 +4047,20 @@ export const MethodOptions = {
   }
 }
 
-const baseUninterpretedOption: object = { identifierValue: "", positiveIntValue: 0, negativeIntValue: 0, doubleValue: 0, aggregateValue: "" }
+const baseUninterpretedOption: object = {
+  identifierValue: '',
+  positiveIntValue: 0,
+  negativeIntValue: 0,
+  doubleValue: 0,
+  aggregateValue: ''
+}
 
 export const UninterpretedOption = {
   encode(message: UninterpretedOption, writer: Writer = Writer.create()): Writer {
     for (const v of message.name) {
       UninterpretedOption_NamePart.encode(v!, writer.uint32(18).fork()).ldelim()
     }
-    if (message.identifierValue !== "") {
+    if (message.identifierValue !== '') {
       writer.uint32(26).string(message.identifierValue)
     }
     if (message.positiveIntValue !== 0) {
@@ -3973,7 +4075,7 @@ export const UninterpretedOption = {
     if (message.stringValue.length !== 0) {
       writer.uint32(58).bytes(message.stringValue)
     }
-    if (message.aggregateValue !== "") {
+    if (message.aggregateValue !== '') {
       writer.uint32(66).string(message.aggregateValue)
     }
     return writer
@@ -3981,7 +4083,7 @@ export const UninterpretedOption = {
 
   decode(input: Reader | Uint8Array, length?: number): UninterpretedOption {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseUninterpretedOption } as UninterpretedOption
     message.name = []
     while (reader.pos < end) {
@@ -4027,7 +4129,7 @@ export const UninterpretedOption = {
     if (object.identifierValue !== undefined && object.identifierValue !== null) {
       message.identifierValue = String(object.identifierValue)
     } else {
-      message.identifierValue = ""
+      message.identifierValue = ''
     }
     if (object.positiveIntValue !== undefined && object.positiveIntValue !== null) {
       message.positiveIntValue = Number(object.positiveIntValue)
@@ -4050,7 +4152,7 @@ export const UninterpretedOption = {
     if (object.aggregateValue !== undefined && object.aggregateValue !== null) {
       message.aggregateValue = String(object.aggregateValue)
     } else {
-      message.aggregateValue = ""
+      message.aggregateValue = ''
     }
     return message
   },
@@ -4058,7 +4160,7 @@ export const UninterpretedOption = {
   toJSON(message: UninterpretedOption): unknown {
     const obj: any = {}
     if (message.name) {
-      obj.name = message.name.map(e => (e ? UninterpretedOption_NamePart.toJSON(e) : undefined))
+      obj.name = message.name.map((e) => (e ? UninterpretedOption_NamePart.toJSON(e) : undefined))
     } else {
       obj.name = []
     }
@@ -4066,7 +4168,10 @@ export const UninterpretedOption = {
     message.positiveIntValue !== undefined && (obj.positiveIntValue = message.positiveIntValue)
     message.negativeIntValue !== undefined && (obj.negativeIntValue = message.negativeIntValue)
     message.doubleValue !== undefined && (obj.doubleValue = message.doubleValue)
-    message.stringValue !== undefined && (obj.stringValue = base64FromBytes(message.stringValue !== undefined ? message.stringValue : new Uint8Array()))
+    message.stringValue !== undefined &&
+      (obj.stringValue = base64FromBytes(
+        message.stringValue !== undefined ? message.stringValue : new Uint8Array()
+      ))
     message.aggregateValue !== undefined && (obj.aggregateValue = message.aggregateValue)
     return obj
   },
@@ -4082,7 +4187,7 @@ export const UninterpretedOption = {
     if (object.identifierValue !== undefined && object.identifierValue !== null) {
       message.identifierValue = object.identifierValue
     } else {
-      message.identifierValue = ""
+      message.identifierValue = ''
     }
     if (object.positiveIntValue !== undefined && object.positiveIntValue !== null) {
       message.positiveIntValue = object.positiveIntValue
@@ -4107,17 +4212,17 @@ export const UninterpretedOption = {
     if (object.aggregateValue !== undefined && object.aggregateValue !== null) {
       message.aggregateValue = object.aggregateValue
     } else {
-      message.aggregateValue = ""
+      message.aggregateValue = ''
     }
     return message
   }
 }
 
-const baseUninterpretedOption_NamePart: object = { namePart: "", isExtension: false }
+const baseUninterpretedOption_NamePart: object = { namePart: '', isExtension: false }
 
 export const UninterpretedOption_NamePart = {
   encode(message: UninterpretedOption_NamePart, writer: Writer = Writer.create()): Writer {
-    if (message.namePart !== "") {
+    if (message.namePart !== '') {
       writer.uint32(10).string(message.namePart)
     }
     if (message.isExtension === true) {
@@ -4128,7 +4233,7 @@ export const UninterpretedOption_NamePart = {
 
   decode(input: Reader | Uint8Array, length?: number): UninterpretedOption_NamePart {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseUninterpretedOption_NamePart } as UninterpretedOption_NamePart
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -4152,7 +4257,7 @@ export const UninterpretedOption_NamePart = {
     if (object.namePart !== undefined && object.namePart !== null) {
       message.namePart = String(object.namePart)
     } else {
-      message.namePart = ""
+      message.namePart = ''
     }
     if (object.isExtension !== undefined && object.isExtension !== null) {
       message.isExtension = Boolean(object.isExtension)
@@ -4174,7 +4279,7 @@ export const UninterpretedOption_NamePart = {
     if (object.namePart !== undefined && object.namePart !== null) {
       message.namePart = object.namePart
     } else {
-      message.namePart = ""
+      message.namePart = ''
     }
     if (object.isExtension !== undefined && object.isExtension !== null) {
       message.isExtension = object.isExtension
@@ -4197,7 +4302,7 @@ export const SourceCodeInfo = {
 
   decode(input: Reader | Uint8Array, length?: number): SourceCodeInfo {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseSourceCodeInfo } as SourceCodeInfo
     message.location = []
     while (reader.pos < end) {
@@ -4228,7 +4333,9 @@ export const SourceCodeInfo = {
   toJSON(message: SourceCodeInfo): unknown {
     const obj: any = {}
     if (message.location) {
-      obj.location = message.location.map(e => (e ? SourceCodeInfo_Location.toJSON(e) : undefined))
+      obj.location = message.location.map((e) =>
+        e ? SourceCodeInfo_Location.toJSON(e) : undefined
+      )
     } else {
       obj.location = []
     }
@@ -4247,7 +4354,13 @@ export const SourceCodeInfo = {
   }
 }
 
-const baseSourceCodeInfo_Location: object = { path: 0, span: 0, leadingComments: "", trailingComments: "", leadingDetachedComments: "" }
+const baseSourceCodeInfo_Location: object = {
+  path: 0,
+  span: 0,
+  leadingComments: '',
+  trailingComments: '',
+  leadingDetachedComments: ''
+}
 
 export const SourceCodeInfo_Location = {
   encode(message: SourceCodeInfo_Location, writer: Writer = Writer.create()): Writer {
@@ -4261,10 +4374,10 @@ export const SourceCodeInfo_Location = {
       writer.int32(v)
     }
     writer.ldelim()
-    if (message.leadingComments !== "") {
+    if (message.leadingComments !== '') {
       writer.uint32(26).string(message.leadingComments)
     }
-    if (message.trailingComments !== "") {
+    if (message.trailingComments !== '') {
       writer.uint32(34).string(message.trailingComments)
     }
     for (const v of message.leadingDetachedComments) {
@@ -4275,7 +4388,7 @@ export const SourceCodeInfo_Location = {
 
   decode(input: Reader | Uint8Array, length?: number): SourceCodeInfo_Location {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseSourceCodeInfo_Location } as SourceCodeInfo_Location
     message.path = []
     message.span = []
@@ -4338,12 +4451,12 @@ export const SourceCodeInfo_Location = {
     if (object.leadingComments !== undefined && object.leadingComments !== null) {
       message.leadingComments = String(object.leadingComments)
     } else {
-      message.leadingComments = ""
+      message.leadingComments = ''
     }
     if (object.trailingComments !== undefined && object.trailingComments !== null) {
       message.trailingComments = String(object.trailingComments)
     } else {
-      message.trailingComments = ""
+      message.trailingComments = ''
     }
     if (object.leadingDetachedComments !== undefined && object.leadingDetachedComments !== null) {
       for (const e of object.leadingDetachedComments) {
@@ -4356,19 +4469,19 @@ export const SourceCodeInfo_Location = {
   toJSON(message: SourceCodeInfo_Location): unknown {
     const obj: any = {}
     if (message.path) {
-      obj.path = message.path.map(e => e)
+      obj.path = message.path.map((e) => e)
     } else {
       obj.path = []
     }
     if (message.span) {
-      obj.span = message.span.map(e => e)
+      obj.span = message.span.map((e) => e)
     } else {
       obj.span = []
     }
     message.leadingComments !== undefined && (obj.leadingComments = message.leadingComments)
     message.trailingComments !== undefined && (obj.trailingComments = message.trailingComments)
     if (message.leadingDetachedComments) {
-      obj.leadingDetachedComments = message.leadingDetachedComments.map(e => e)
+      obj.leadingDetachedComments = message.leadingDetachedComments.map((e) => e)
     } else {
       obj.leadingDetachedComments = []
     }
@@ -4393,12 +4506,12 @@ export const SourceCodeInfo_Location = {
     if (object.leadingComments !== undefined && object.leadingComments !== null) {
       message.leadingComments = object.leadingComments
     } else {
-      message.leadingComments = ""
+      message.leadingComments = ''
     }
     if (object.trailingComments !== undefined && object.trailingComments !== null) {
       message.trailingComments = object.trailingComments
     } else {
-      message.trailingComments = ""
+      message.trailingComments = ''
     }
     if (object.leadingDetachedComments !== undefined && object.leadingDetachedComments !== null) {
       for (const e of object.leadingDetachedComments) {
@@ -4421,7 +4534,7 @@ export const GeneratedCodeInfo = {
 
   decode(input: Reader | Uint8Array, length?: number): GeneratedCodeInfo {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseGeneratedCodeInfo } as GeneratedCodeInfo
     message.annotation = []
     while (reader.pos < end) {
@@ -4452,7 +4565,9 @@ export const GeneratedCodeInfo = {
   toJSON(message: GeneratedCodeInfo): unknown {
     const obj: any = {}
     if (message.annotation) {
-      obj.annotation = message.annotation.map(e => (e ? GeneratedCodeInfo_Annotation.toJSON(e) : undefined))
+      obj.annotation = message.annotation.map((e) =>
+        e ? GeneratedCodeInfo_Annotation.toJSON(e) : undefined
+      )
     } else {
       obj.annotation = []
     }
@@ -4471,7 +4586,7 @@ export const GeneratedCodeInfo = {
   }
 }
 
-const baseGeneratedCodeInfo_Annotation: object = { path: 0, sourceFile: "", begin: 0, end: 0 }
+const baseGeneratedCodeInfo_Annotation: object = { path: 0, sourceFile: '', begin: 0, end: 0 }
 
 export const GeneratedCodeInfo_Annotation = {
   encode(message: GeneratedCodeInfo_Annotation, writer: Writer = Writer.create()): Writer {
@@ -4480,7 +4595,7 @@ export const GeneratedCodeInfo_Annotation = {
       writer.int32(v)
     }
     writer.ldelim()
-    if (message.sourceFile !== "") {
+    if (message.sourceFile !== '') {
       writer.uint32(18).string(message.sourceFile)
     }
     if (message.begin !== 0) {
@@ -4494,7 +4609,7 @@ export const GeneratedCodeInfo_Annotation = {
 
   decode(input: Reader | Uint8Array, length?: number): GeneratedCodeInfo_Annotation {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseGeneratedCodeInfo_Annotation } as GeneratedCodeInfo_Annotation
     message.path = []
     while (reader.pos < end) {
@@ -4538,7 +4653,7 @@ export const GeneratedCodeInfo_Annotation = {
     if (object.sourceFile !== undefined && object.sourceFile !== null) {
       message.sourceFile = String(object.sourceFile)
     } else {
-      message.sourceFile = ""
+      message.sourceFile = ''
     }
     if (object.begin !== undefined && object.begin !== null) {
       message.begin = Number(object.begin)
@@ -4556,7 +4671,7 @@ export const GeneratedCodeInfo_Annotation = {
   toJSON(message: GeneratedCodeInfo_Annotation): unknown {
     const obj: any = {}
     if (message.path) {
-      obj.path = message.path.map(e => e)
+      obj.path = message.path.map((e) => e)
     } else {
       obj.path = []
     }
@@ -4577,7 +4692,7 @@ export const GeneratedCodeInfo_Annotation = {
     if (object.sourceFile !== undefined && object.sourceFile !== null) {
       message.sourceFile = object.sourceFile
     } else {
-      message.sourceFile = ""
+      message.sourceFile = ''
     }
     if (object.begin !== undefined && object.begin !== null) {
       message.begin = object.begin
@@ -4595,16 +4710,16 @@ export const GeneratedCodeInfo_Annotation = {
 
 declare var self: any | undefined
 declare var window: any | undefined
-const globalThis: any = (() => {
-  // @ts-ignore
-  if (typeof globalThis !== "undefined") { return globalThis }
-  if (typeof self !== "undefined") { return self }
-  if (typeof window !== "undefined") { return window }
-  if (typeof global !== "undefined") { return global }
-  throw new Error("Unable to locate global object")
+var globalThis: any = (() => {
+  if (typeof globalThis !== 'undefined') return globalThis
+  if (typeof self !== 'undefined') return self
+  if (typeof window !== 'undefined') return window
+  if (typeof global !== 'undefined') return global
+  throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || (b64 => globalThis.Buffer.from(b64, "base64").toString("binary"))
+const atob: (b64: string) => string =
+  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -4614,13 +4729,14 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || (bin => globalThis.Buffer.from(bin, "binary").toString("base64"))
+const btoa: (bin: string) => string =
+  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
     bin.push(String.fromCharCode(arr[i]))
   }
-  return btoa(bin.join(""))
+  return btoa(bin.join(''))
 }
 
 type Builtin = Date | Function | Uint8Array | string | number | undefined
@@ -4636,7 +4752,12 @@ export type DeepPartial<T> = T extends Builtin
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER")
+    throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER')
   }
   return long.toNumber()
+}
+
+if (util.Long !== Long) {
+  util.Long = Long as any
+  configure()
 }

@@ -93,8 +93,6 @@ field. Example (for message [google.protobuf.Duration][]):
       "value": "1.212s"
     }
 */
-import fetch from "cross-fetch"
-
 export interface ProtobufAny {
   /**
    * A URL/resource name that uniquely identifies the type of the serialized
@@ -136,118 +134,6 @@ export interface RpcStatus {
 }
 
 /**
-* Grant gives permissions to execute
-the provide method with expiration time.
-*/
-export interface V1Beta1Grant {
-  /**
-   * `Any` contains an arbitrary serialized protocol buffer message along with a
-   * URL that describes the type of the serialized message.
-   *
-   * Protobuf library provides support to pack/unpack Any values in the form
-   * of utility functions or additional generated methods of the Any type.
-   *
-   * Example 1: Pack and unpack a message in C++.
-   *
-   *     Foo foo = ...;
-   *     Any any;
-   *     any.PackFrom(foo);
-   *     ...
-   *     if (any.UnpackTo(&foo)) {
-   *       ...
-   *     }
-   *
-   * Example 2: Pack and unpack a message in Java.
-   *
-   *     Foo foo = ...;
-   *     Any any = Any.pack(foo);
-   *     ...
-   *     if (any.is(Foo.class)) {
-   *       foo = any.unpack(Foo.class);
-   *     }
-   *
-   *  Example 3: Pack and unpack a message in Python.
-   *
-   *     foo = Foo(...)
-   *     any = Any()
-   *     any.Pack(foo)
-   *     ...
-   *     if any.Is(Foo.DESCRIPTOR):
-   *       any.Unpack(foo)
-   *       ...
-   *
-   *  Example 4: Pack and unpack a message in Go
-   *
-   *      foo := &pb.Foo{...}
-   *      any, err := anypb.New(foo)
-   *      if err != nil {
-   *        ...
-   *      }
-   *      ...
-   *      foo := &pb.Foo{}
-   *      if err := any.UnmarshalTo(foo); err != nil {
-   *        ...
-   *      }
-   *
-   * The pack methods provided by protobuf library will by default use
-   * 'type.googleapis.com/full.type.name' as the type URL and the unpack
-   * methods only use the fully qualified type name after the last '/'
-   * in the type URL, for example "foo.bar.com/x/y.z" will yield type
-   * name "y.z".
-   *
-   *
-   * JSON
-   * ====
-   * The JSON representation of an `Any` value uses the regular
-   * representation of the deserialized, embedded message, with an
-   * additional field `@type` which contains the type URL. Example:
-   *
-   *     package google.profile;
-   *     message Person {
-   *       string first_name = 1;
-   *       string last_name = 2;
-   *     }
-   *
-   *     {
-   *       "@type": "type.googleapis.com/google.profile.Person",
-   *       "firstName": <string>,
-   *       "lastName": <string>
-   *     }
-   *
-   * If the embedded message type is well-known and has a custom JSON
-   * representation, that representation will be embedded adding a field
-   * `value` which holds the custom JSON in addition to the `@type`
-   * field. Example (for message [google.protobuf.Duration][]):
-   *
-   *     {
-   *       "@type": "type.googleapis.com/google.protobuf.Duration",
-   *       "value": "1.212s"
-   *     }
-   */
-  authorization?: ProtobufAny;
-
-  /** @format date-time */
-  expiration?: string;
-}
-
-/**
- * MsgExecResponse defines the Msg/MsgExecResponse response type.
- */
-export interface V1Beta1MsgExecResponse {
-  results?: string[];
-}
-
-/**
- * MsgGrantResponse defines the Msg/MsgGrant response type.
- */
-export type V1Beta1MsgGrantResponse = object;
-
-/**
- * MsgRevokeResponse defines the Msg/MsgRevokeResponse response type.
- */
-export type V1Beta1MsgRevokeResponse = object;
-
-/**
 * message SomeRequest {
          Foo some_parameter = 1;
          PageRequest pagination = 2;
@@ -283,9 +169,13 @@ export interface V1Beta1PageRequest {
    * count_total is only respected when offset is used. It is ignored when key
    * is set.
    */
-  countTotal?: boolean;
+  count_total?: boolean;
 
-  /** reverse is set to true if results are to be returned in the descending order. */
+  /**
+   * reverse is set to true if results are to be returned in the descending order.
+   *
+   * Since: cosmos-sdk 0.43
+   */
   reverse?: boolean;
 }
 
@@ -300,21 +190,58 @@ corresponding request message has used PageRequest.
 */
 export interface V1Beta1PageResponse {
   /** @format byte */
-  nextKey?: string;
+  next_key?: string;
 
   /** @format uint64 */
   total?: string;
 }
 
 /**
- * QueryGrantsResponse is the response type for the Query/Authorizations RPC method.
+ * Params defines the parameters for the auth module.
  */
-export interface V1Beta1QueryGrantsResponse {
-  /** authorizations is a list of grants granted for grantee by granter. */
-  grants?: V1Beta1Grant[];
+export interface V1Beta1Params {
+  /** @format uint64 */
+  max_memo_characters?: string;
 
-  /** pagination defines an pagination for the response. */
+  /** @format uint64 */
+  tx_sig_limit?: string;
+
+  /** @format uint64 */
+  tx_size_cost_per_byte?: string;
+
+  /** @format uint64 */
+  sig_verify_cost_ed25519?: string;
+
+  /** @format uint64 */
+  sig_verify_cost_secp256k1?: string;
+}
+
+/**
+ * QueryAccountResponse is the response type for the Query/Account RPC method.
+ */
+export interface V1Beta1QueryAccountResponse {
+  /** account defines the account of the corresponding address. */
+  account?: ProtobufAny;
+}
+
+/**
+* QueryAccountsResponse is the response type for the Query/Accounts RPC method.
+
+Since: cosmos-sdk 0.43
+*/
+export interface V1Beta1QueryAccountsResponse {
+  accounts?: ProtobufAny[];
+
+  /** pagination defines the pagination in the response. */
   pagination?: V1Beta1PageResponse;
+}
+
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ */
+export interface V1Beta1QueryParamsResponse {
+  /** params defines the parameters of the module. */
+  params?: V1Beta1Params;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -509,35 +436,64 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title cosmos/authz/v1beta1/authz.proto
+ * @title cosmos/auth/v1beta1/auth.proto
  * @version version not set
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
   /**
-   * No description
+   * @description Since: cosmos-sdk 0.43
    *
    * @tags Query
-   * @name QueryGrants
-   * @summary Returns list of `Authorization`, granted to the grantee by the granter.
-   * @request GET:/cosmos/authz/v1beta1/grants
+   * @name QueryAccounts
+   * @summary Accounts returns all the existing accounts
+   * @request GET:/cosmos/auth/v1beta1/accounts
    */
-  queryGrants = (
+  queryAccounts = (
     query?: {
-      granter?: string;
-      grantee?: string;
-      msgTypeUrl?: string;
       "pagination.key"?: string;
       "pagination.offset"?: string;
       "pagination.limit"?: string;
-      "pagination.countTotal"?: boolean;
+      "pagination.count_total"?: boolean;
       "pagination.reverse"?: boolean;
     },
     params: RequestParams = {},
   ) =>
-    this.request<V1Beta1QueryGrantsResponse, RpcStatus>({
-      path: `/cosmos/authz/v1beta1/grants`,
+    this.request<V1Beta1QueryAccountsResponse, RpcStatus>({
+      path: `/cosmos/auth/v1beta1/accounts`,
       method: "GET",
       query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryAccount
+   * @summary Account returns account details based on address.
+   * @request GET:/cosmos/auth/v1beta1/accounts/{address}
+   */
+  queryAccount = (address: string, params: RequestParams = {}) =>
+    this.request<V1Beta1QueryAccountResponse, RpcStatus>({
+      path: `/cosmos/auth/v1beta1/accounts/${address}`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryParams
+   * @summary Params queries all parameters.
+   * @request GET:/cosmos/auth/v1beta1/params
+   */
+  queryParams = (params: RequestParams = {}) =>
+    this.request<V1Beta1QueryParamsResponse, RpcStatus>({
+      path: `/cosmos/auth/v1beta1/params`,
+      method: "GET",
       format: "json",
       ...params,
     });

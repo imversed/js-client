@@ -1,12 +1,14 @@
 /* eslint-disable */
-import { Coin } from "../../../cosmos/base/v1beta1/coin"
-import { Writer, Reader } from "protobufjs/minimal"
+import { Coin } from '../../../cosmos/base/v1beta1/coin'
+import { Writer, Reader } from 'protobufjs/minimal'
 
-export const protobufPackage = "cosmos.bank.v1beta1"
+export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /**
  * SendAuthorization allows the grantee to spend up to spend_limit coins from
  * the granter's account.
+ *
+ * Since: cosmos-sdk 0.43
  */
 export interface SendAuthorization {
   spendLimit: Coin[]
@@ -24,7 +26,7 @@ export const SendAuthorization = {
 
   decode(input: Reader | Uint8Array, length?: number): SendAuthorization {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseSendAuthorization } as SendAuthorization
     message.spendLimit = []
     while (reader.pos < end) {
@@ -55,7 +57,7 @@ export const SendAuthorization = {
   toJSON(message: SendAuthorization): unknown {
     const obj: any = {}
     if (message.spendLimit) {
-      obj.spendLimit = message.spendLimit.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.spendLimit = message.spendLimit.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.spendLimit = []
     }

@@ -1,9 +1,9 @@
 /* eslint-disable */
-import { Reader, Writer } from "protobufjs/minimal"
-import { Coin } from "../../../cosmos/base/v1beta1/coin"
-import { Input, Output } from "../../../cosmos/bank/v1beta1/bank"
+import { Reader, Writer } from 'protobufjs/minimal'
+import { Coin } from '../../../cosmos/base/v1beta1/coin'
+import { Input, Output } from '../../../cosmos/bank/v1beta1/bank'
 
-export const protobufPackage = "cosmos.bank.v1beta1"
+export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /** MsgSend represents a message to send coins from one account to another. */
 export interface MsgSend {
@@ -24,14 +24,14 @@ export interface MsgMultiSend {
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */
 export interface MsgMultiSendResponse {}
 
-const baseMsgSend: object = { fromAddress: "", toAddress: "" }
+const baseMsgSend: object = { fromAddress: '', toAddress: '' }
 
 export const MsgSend = {
   encode(message: MsgSend, writer: Writer = Writer.create()): Writer {
-    if (message.fromAddress !== "") {
+    if (message.fromAddress !== '') {
       writer.uint32(10).string(message.fromAddress)
     }
-    if (message.toAddress !== "") {
+    if (message.toAddress !== '') {
       writer.uint32(18).string(message.toAddress)
     }
     for (const v of message.amount) {
@@ -42,7 +42,7 @@ export const MsgSend = {
 
   decode(input: Reader | Uint8Array, length?: number): MsgSend {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMsgSend } as MsgSend
     message.amount = []
     while (reader.pos < end) {
@@ -71,12 +71,12 @@ export const MsgSend = {
     if (object.fromAddress !== undefined && object.fromAddress !== null) {
       message.fromAddress = String(object.fromAddress)
     } else {
-      message.fromAddress = ""
+      message.fromAddress = ''
     }
     if (object.toAddress !== undefined && object.toAddress !== null) {
       message.toAddress = String(object.toAddress)
     } else {
-      message.toAddress = ""
+      message.toAddress = ''
     }
     if (object.amount !== undefined && object.amount !== null) {
       for (const e of object.amount) {
@@ -91,7 +91,7 @@ export const MsgSend = {
     message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress)
     message.toAddress !== undefined && (obj.toAddress = message.toAddress)
     if (message.amount) {
-      obj.amount = message.amount.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.amount = []
     }
@@ -104,12 +104,12 @@ export const MsgSend = {
     if (object.fromAddress !== undefined && object.fromAddress !== null) {
       message.fromAddress = object.fromAddress
     } else {
-      message.fromAddress = ""
+      message.fromAddress = ''
     }
     if (object.toAddress !== undefined && object.toAddress !== null) {
       message.toAddress = object.toAddress
     } else {
-      message.toAddress = ""
+      message.toAddress = ''
     }
     if (object.amount !== undefined && object.amount !== null) {
       for (const e of object.amount) {
@@ -129,7 +129,7 @@ export const MsgSendResponse = {
 
   decode(input: Reader | Uint8Array, length?: number): MsgSendResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMsgSendResponse } as MsgSendResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -173,7 +173,7 @@ export const MsgMultiSend = {
 
   decode(input: Reader | Uint8Array, length?: number): MsgMultiSend {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMsgMultiSend } as MsgMultiSend
     message.inputs = []
     message.outputs = []
@@ -214,12 +214,12 @@ export const MsgMultiSend = {
   toJSON(message: MsgMultiSend): unknown {
     const obj: any = {}
     if (message.inputs) {
-      obj.inputs = message.inputs.map(e => (e ? Input.toJSON(e) : undefined))
+      obj.inputs = message.inputs.map((e) => (e ? Input.toJSON(e) : undefined))
     } else {
       obj.inputs = []
     }
     if (message.outputs) {
-      obj.outputs = message.outputs.map(e => (e ? Output.toJSON(e) : undefined))
+      obj.outputs = message.outputs.map((e) => (e ? Output.toJSON(e) : undefined))
     } else {
       obj.outputs = []
     }
@@ -253,7 +253,7 @@ export const MsgMultiSendResponse = {
 
   decode(input: Reader | Uint8Array, length?: number): MsgMultiSendResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseMsgMultiSendResponse } as MsgMultiSendResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -295,16 +295,16 @@ export class MsgClientImpl implements Msg {
   constructor(rpc: Rpc) {
     this.rpc = rpc
   }
-  public Send(request: MsgSend): Promise<MsgSendResponse> {
+  Send(request: MsgSend): Promise<MsgSendResponse> {
     const data = MsgSend.encode(request).finish()
-    const promise = this.rpc.request("cosmos.bank.v1beta1.Msg", "Send", data)
-    return promise.then(data => MsgSendResponse.decode(new Reader(data)))
+    const promise = this.rpc.request('cosmos.bank.v1beta1.Msg', 'Send', data)
+    return promise.then((data) => MsgSendResponse.decode(new Reader(data)))
   }
 
-  public MultiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse> {
+  MultiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse> {
     const data = MsgMultiSend.encode(request).finish()
-    const promise = this.rpc.request("cosmos.bank.v1beta1.Msg", "MultiSend", data)
-    return promise.then(data => MsgMultiSendResponse.decode(new Reader(data)))
+    const promise = this.rpc.request('cosmos.bank.v1beta1.Msg', 'MultiSend', data)
+    return promise.then((data) => MsgMultiSendResponse.decode(new Reader(data)))
   }
 }
 

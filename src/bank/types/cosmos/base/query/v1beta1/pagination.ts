@@ -1,9 +1,8 @@
 /* eslint-disable */
-// @ts-nocheck
-import * as Long from "long"
-import { util, configure, Writer, Reader } from "protobufjs/minimal"
+import * as Long from 'long'
+import { util, configure, Writer, Reader } from 'protobufjs/minimal'
 
-export const protobufPackage = "cosmos.base.query.v1beta1"
+export const protobufPackage = 'cosmos.base.query.v1beta1'
 
 /**
  * PageRequest is to be embedded in gRPC request messages for efficient
@@ -39,7 +38,11 @@ export interface PageRequest {
    * is set.
    */
   countTotal: boolean
-  /** reverse is set to true if results are to be returned in the descending order. */
+  /**
+   * reverse is set to true if results are to be returned in the descending order.
+   *
+   * Since: cosmos-sdk 0.43
+   */
   reverse: boolean
 }
 
@@ -89,7 +92,7 @@ export const PageRequest = {
 
   decode(input: Reader | Uint8Array, length?: number): PageRequest {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...basePageRequest } as PageRequest
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -147,7 +150,8 @@ export const PageRequest = {
 
   toJSON(message: PageRequest): unknown {
     const obj: any = {}
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()))
+    message.key !== undefined &&
+      (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()))
     message.offset !== undefined && (obj.offset = message.offset)
     message.limit !== undefined && (obj.limit = message.limit)
     message.countTotal !== undefined && (obj.countTotal = message.countTotal)
@@ -201,7 +205,7 @@ export const PageResponse = {
 
   decode(input: Reader | Uint8Array, length?: number): PageResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...basePageResponse } as PageResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
@@ -235,7 +239,10 @@ export const PageResponse = {
 
   toJSON(message: PageResponse): unknown {
     const obj: any = {}
-    message.nextKey !== undefined && (obj.nextKey = base64FromBytes(message.nextKey !== undefined ? message.nextKey : new Uint8Array()))
+    message.nextKey !== undefined &&
+      (obj.nextKey = base64FromBytes(
+        message.nextKey !== undefined ? message.nextKey : new Uint8Array()
+      ))
     message.total !== undefined && (obj.total = message.total)
     return obj
   },
@@ -258,16 +265,16 @@ export const PageResponse = {
 
 declare var self: any | undefined
 declare var window: any | undefined
-const globalThis: any = (() => {
-  // @ts-ignore
-  if (typeof globalThis !== "undefined") { return globalThis }
-  if (typeof self !== "undefined") { return self }
-  if (typeof window !== "undefined") { return window }
-  if (typeof global !== "undefined") { return global }
-  throw new Error("Unable to locate global object")
+var globalThis: any = (() => {
+  if (typeof globalThis !== 'undefined') return globalThis
+  if (typeof self !== 'undefined') return self
+  if (typeof window !== 'undefined') return window
+  if (typeof global !== 'undefined') return global
+  throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || (b64 => globalThis.Buffer.from(b64, "base64").toString("binary"))
+const atob: (b64: string) => string =
+  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -277,16 +284,16 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || (bin => globalThis.Buffer.from(bin, "binary").toString("base64"))
+const btoa: (bin: string) => string =
+  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
     bin.push(String.fromCharCode(arr[i]))
   }
-  return btoa(bin.join(""))
+  return btoa(bin.join(''))
 }
 
-// tslint:disable-next-line:ban-types
 type Builtin = Date | Function | Uint8Array | string | number | undefined
 export type DeepPartial<T> = T extends Builtin
   ? T
@@ -300,7 +307,12 @@ export type DeepPartial<T> = T extends Builtin
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER")
+    throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER')
   }
   return long.toNumber()
+}
+
+if (util.Long !== Long) {
+  util.Long = Long as any
+  configure()
 }

@@ -8,7 +8,6 @@
  * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
  * ---------------------------------------------------------------
  */
-import fetch from "cross-fetch"
 
 export interface NftBaseNFT {
   id?: string;
@@ -29,14 +28,14 @@ export interface NftDenom {
   schema?: string;
   creator?: string;
   symbol?: string;
-  mintRestricted?: boolean;
-  updateRestricted?: boolean;
-  oracleUrl?: string;
+  mint_restricted?: boolean;
+  update_restricted?: boolean;
+  oracle_url?: string;
 }
 
 export interface NftIDCollection {
-  denomId?: string;
-  tokenIds?: string[];
+  denom_id?: string;
+  token_ids?: string[];
 }
 
 /**
@@ -76,7 +75,7 @@ export type NftMsgUpdateDenomResponse = object;
 
 export interface NftOwner {
   address?: string;
-  idCollections?: NftIDCollection[];
+  id_collections?: NftIDCollection[];
 }
 
 export interface NftQueryCollectionResponse {
@@ -184,9 +183,13 @@ export interface V1Beta1PageRequest {
    * count_total is only respected when offset is used. It is ignored when key
    * is set.
    */
-  countTotal?: boolean;
+  count_total?: boolean;
 
-  /** reverse is set to true if results are to be returned in the descending order. */
+  /**
+   * reverse is set to true if results are to be returned in the descending order.
+   *
+   * Since: cosmos-sdk 0.43
+   */
   reverse?: boolean;
 }
 
@@ -201,7 +204,7 @@ corresponding request message has used PageRequest.
 */
 export interface V1Beta1PageResponse {
   /** @format byte */
-  nextKey?: string;
+  next_key?: string;
 
   /** @format uint64 */
   total?: string;
@@ -409,21 +412,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryCollection
    * @summary Collection queries the NFTs of the specified denom
-   * @request GET:/imversed/nft/collections/{denomId}
+   * @request GET:/imversed/nft/collections/{denom_id}
    */
   queryCollection = (
-    denomId: string,
+    denom_id: string,
     query?: {
       "pagination.key"?: string;
       "pagination.offset"?: string;
       "pagination.limit"?: string;
-      "pagination.countTotal"?: boolean;
+      "pagination.count_total"?: boolean;
       "pagination.reverse"?: boolean;
     },
     params: RequestParams = {},
   ) =>
     this.request<NftQueryCollectionResponse, RpcStatus>({
-      path: `/imversed/nft/collections/${denomId}`,
+      path: `/imversed/nft/collections/${denom_id}`,
       method: "GET",
       query: query,
       format: "json",
@@ -436,11 +439,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QuerySupply
    * @summary Supply queries the total supply of a given denom or owner
-   * @request GET:/imversed/nft/collections/{denomId}/supply
+   * @request GET:/imversed/nft/collections/{denom_id}/supply
    */
-  querySupply = (denomId: string, query?: { owner?: string }, params: RequestParams = {}) =>
+  querySupply = (denom_id: string, query?: { owner?: string }, params: RequestParams = {}) =>
     this.request<NftQuerySupplyResponse, RpcStatus>({
-      path: `/imversed/nft/collections/${denomId}/supply`,
+      path: `/imversed/nft/collections/${denom_id}/supply`,
       method: "GET",
       query: query,
       format: "json",
@@ -460,7 +463,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       "pagination.key"?: string;
       "pagination.offset"?: string;
       "pagination.limit"?: string;
-      "pagination.countTotal"?: boolean;
+      "pagination.count_total"?: boolean;
       "pagination.reverse"?: boolean;
     },
     params: RequestParams = {},
@@ -479,11 +482,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryDenom
    * @summary Denom queries the definition of a given denom
-   * @request GET:/imversed/nft/denoms/{denomId}
+   * @request GET:/imversed/nft/denoms/{denom_id}
    */
-  queryDenom = (denomId: string, params: RequestParams = {}) =>
+  queryDenom = (denom_id: string, params: RequestParams = {}) =>
     this.request<NftQueryDenomResponse, RpcStatus>({
-      path: `/imversed/nft/denoms/${denomId}`,
+      path: `/imversed/nft/denoms/${denom_id}`,
       method: "GET",
       format: "json",
       ...params,
@@ -499,12 +502,12 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    */
   queryOwner = (
     query?: {
-      denomId?: string;
+      denom_id?: string;
       owner?: string;
       "pagination.key"?: string;
       "pagination.offset"?: string;
       "pagination.limit"?: string;
-      "pagination.countTotal"?: boolean;
+      "pagination.count_total"?: boolean;
       "pagination.reverse"?: boolean;
     },
     params: RequestParams = {},
@@ -523,11 +526,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryNft
    * @summary NFT queries the NFT for the given denom and token ID
-   * @request GET:/imversed/nft/nfts/{denomId}/{tokenId}
+   * @request GET:/imversed/nft/nfts/{denom_id}/{token_id}
    */
-  queryNft = (denomId: string, tokenId: string, params: RequestParams = {}) =>
+  queryNft = (denom_id: string, token_id: string, params: RequestParams = {}) =>
     this.request<NftQueryNFTResponse, RpcStatus>({
-      path: `/imversed/nft/nfts/${denomId}/${tokenId}`,
+      path: `/imversed/nft/nfts/${denom_id}/${token_id}`,
       method: "GET",
       format: "json",
       ...params,

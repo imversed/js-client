@@ -1,9 +1,9 @@
 /* eslint-disable */
-import { Params, Metadata } from "./bank"
-import { Coin } from "../../base/v1beta1/coin"
-import { Writer, Reader } from "protobufjs/minimal"
+import { Params, Metadata } from '../../../cosmos/bank/v1beta1/bank'
+import { Coin } from '../../../cosmos/base/v1beta1/coin'
+import { Writer, Reader } from 'protobufjs/minimal'
 
-export const protobufPackage = "cosmos.bank.v1beta1"
+export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /** GenesisState defines the bank module's genesis state. */
 export interface GenesisState {
@@ -52,14 +52,13 @@ export const GenesisState = {
 
   decode(input: Reader | Uint8Array, length?: number): GenesisState {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseGenesisState } as GenesisState
     message.balances = []
     message.supply = []
     message.denomMetadata = []
     while (reader.pos < end) {
       const tag = reader.uint32()
-      // tslint:disable-next-line:no-bitwise
       switch (tag >>> 3) {
         case 1:
           message.params = Params.decode(reader, reader.uint32())
@@ -111,19 +110,20 @@ export const GenesisState = {
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {}
-    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined)
+    message.params !== undefined &&
+      (obj.params = message.params ? Params.toJSON(message.params) : undefined)
     if (message.balances) {
-      obj.balances = message.balances.map(e => (e ? Balance.toJSON(e) : undefined))
+      obj.balances = message.balances.map((e) => (e ? Balance.toJSON(e) : undefined))
     } else {
       obj.balances = []
     }
     if (message.supply) {
-      obj.supply = message.supply.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.supply = message.supply.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.supply = []
     }
     if (message.denomMetadata) {
-      obj.denomMetadata = message.denomMetadata.map(e => (e ? Metadata.toJSON(e) : undefined))
+      obj.denomMetadata = message.denomMetadata.map((e) => (e ? Metadata.toJSON(e) : undefined))
     } else {
       obj.denomMetadata = []
     }
@@ -159,11 +159,11 @@ export const GenesisState = {
   }
 }
 
-const baseBalance: object = { address: "" }
+const baseBalance: object = { address: '' }
 
 export const Balance = {
   encode(message: Balance, writer: Writer = Writer.create()): Writer {
-    if (message.address !== "") {
+    if (message.address !== '') {
       writer.uint32(10).string(message.address)
     }
     for (const v of message.coins) {
@@ -174,7 +174,7 @@ export const Balance = {
 
   decode(input: Reader | Uint8Array, length?: number): Balance {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
-    const end = length === undefined ? reader.len : reader.pos + length
+    let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseBalance } as Balance
     message.coins = []
     while (reader.pos < end) {
@@ -200,7 +200,7 @@ export const Balance = {
     if (object.address !== undefined && object.address !== null) {
       message.address = String(object.address)
     } else {
-      message.address = ""
+      message.address = ''
     }
     if (object.coins !== undefined && object.coins !== null) {
       for (const e of object.coins) {
@@ -214,7 +214,7 @@ export const Balance = {
     const obj: any = {}
     message.address !== undefined && (obj.address = message.address)
     if (message.coins) {
-      obj.coins = message.coins.map(e => (e ? Coin.toJSON(e) : undefined))
+      obj.coins = message.coins.map((e) => (e ? Coin.toJSON(e) : undefined))
     } else {
       obj.coins = []
     }
@@ -227,7 +227,7 @@ export const Balance = {
     if (object.address !== undefined && object.address !== null) {
       message.address = object.address
     } else {
-      message.address = ""
+      message.address = ''
     }
     if (object.coins !== undefined && object.coins !== null) {
       for (const e of object.coins) {

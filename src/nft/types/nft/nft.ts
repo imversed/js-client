@@ -1,604 +1,592 @@
 /* eslint-disable */
-import { Writer, Reader } from "protobufjs/minimal";
+import { Writer, Reader } from 'protobufjs/minimal'
 
-export const protobufPackage = "imversed.nft";
+export const protobufPackage = 'imversed.nft'
 
 /** BaseNFT defines a non-fungible token */
 export interface BaseNFT {
-  id: string;
-  name: string;
-  uri: string;
-  data: string;
-  owner: string;
+  id: string
+  name: string
+  uri: string
+  data: string
+  owner: string
 }
 
 /** Denom defines a type of NFT */
 export interface Denom {
-  id: string;
-  name: string;
-  schema: string;
-  creator: string;
-  symbol: string;
-  mintRestricted: boolean;
-  updateRestricted: boolean;
-  oracleUrl: string;
+  id: string
+  name: string
+  schema: string
+  creator: string
+  symbol: string
+  mintRestricted: boolean
+  updateRestricted: boolean
+  oracleUrl: string
 }
 
 /** IDCollection defines a type of collection with specified ID */
 export interface IDCollection {
-  denomId: string;
-  tokenIds: string[];
+  denomId: string
+  tokenIds: string[]
 }
 
 /** Owner defines a type of owner */
 export interface Owner {
-  address: string;
-  idCollections: IDCollection[];
+  address: string
+  idCollections: IDCollection[]
 }
 
 /** Collection defines a type of collection */
 export interface Collection {
-  denom: Denom | undefined;
-  nfts: BaseNFT[];
+  denom: Denom | undefined
+  nfts: BaseNFT[]
 }
 
-const baseBaseNFT: object = { id: "", name: "", uri: "", data: "", owner: "" };
+const baseBaseNFT: object = { id: '', name: '', uri: '', data: '', owner: '' }
 
 export const BaseNFT = {
   encode(message: BaseNFT, writer: Writer = Writer.create()): Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
+    if (message.id !== '') {
+      writer.uint32(10).string(message.id)
     }
-    if (message.name !== "") {
-      writer.uint32(18).string(message.name);
+    if (message.name !== '') {
+      writer.uint32(18).string(message.name)
     }
-    if (message.uri !== "") {
-      writer.uint32(26).string(message.uri);
+    if (message.uri !== '') {
+      writer.uint32(26).string(message.uri)
     }
-    if (message.data !== "") {
-      writer.uint32(34).string(message.data);
+    if (message.data !== '') {
+      writer.uint32(34).string(message.data)
     }
-    if (message.owner !== "") {
-      writer.uint32(42).string(message.owner);
+    if (message.owner !== '') {
+      writer.uint32(42).string(message.owner)
     }
-    return writer;
+    return writer
   },
 
   decode(input: Reader | Uint8Array, length?: number): BaseNFT {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseBaseNFT } as BaseNFT;
+    const reader = input instanceof Uint8Array ? new Reader(input) : input
+    let end = length === undefined ? reader.len : reader.pos + length
+    const message = { ...baseBaseNFT } as BaseNFT
     while (reader.pos < end) {
-      const tag = reader.uint32();
+      const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.id = reader.string();
-          break;
+          message.id = reader.string()
+          break
         case 2:
-          message.name = reader.string();
-          break;
+          message.name = reader.string()
+          break
         case 3:
-          message.uri = reader.string();
-          break;
+          message.uri = reader.string()
+          break
         case 4:
-          message.data = reader.string();
-          break;
+          message.data = reader.string()
+          break
         case 5:
-          message.owner = reader.string();
-          break;
+          message.owner = reader.string()
+          break
         default:
-          reader.skipType(tag & 7);
-          break;
+          reader.skipType(tag & 7)
+          break
       }
     }
-    return message;
+    return message
   },
 
   fromJSON(object: any): BaseNFT {
-    const message = { ...baseBaseNFT } as BaseNFT;
+    const message = { ...baseBaseNFT } as BaseNFT
     if (object.id !== undefined && object.id !== null) {
-      message.id = String(object.id);
+      message.id = String(object.id)
     } else {
-      message.id = "";
+      message.id = ''
     }
     if (object.name !== undefined && object.name !== null) {
-      message.name = String(object.name);
+      message.name = String(object.name)
     } else {
-      message.name = "";
+      message.name = ''
     }
     if (object.uri !== undefined && object.uri !== null) {
-      message.uri = String(object.uri);
+      message.uri = String(object.uri)
     } else {
-      message.uri = "";
+      message.uri = ''
     }
     if (object.data !== undefined && object.data !== null) {
-      message.data = String(object.data);
+      message.data = String(object.data)
     } else {
-      message.data = "";
+      message.data = ''
     }
     if (object.owner !== undefined && object.owner !== null) {
-      message.owner = String(object.owner);
+      message.owner = String(object.owner)
     } else {
-      message.owner = "";
+      message.owner = ''
     }
-    return message;
+    return message
   },
 
   toJSON(message: BaseNFT): unknown {
-    const obj: any = {};
-    message.id !== undefined && (obj.id = message.id);
-    message.name !== undefined && (obj.name = message.name);
-    message.uri !== undefined && (obj.uri = message.uri);
-    message.data !== undefined && (obj.data = message.data);
-    message.owner !== undefined && (obj.owner = message.owner);
-    return obj;
+    const obj: any = {}
+    message.id !== undefined && (obj.id = message.id)
+    message.name !== undefined && (obj.name = message.name)
+    message.uri !== undefined && (obj.uri = message.uri)
+    message.data !== undefined && (obj.data = message.data)
+    message.owner !== undefined && (obj.owner = message.owner)
+    return obj
   },
 
   fromPartial(object: DeepPartial<BaseNFT>): BaseNFT {
-    const message = { ...baseBaseNFT } as BaseNFT;
+    const message = { ...baseBaseNFT } as BaseNFT
     if (object.id !== undefined && object.id !== null) {
-      message.id = object.id;
+      message.id = object.id
     } else {
-      message.id = "";
+      message.id = ''
     }
     if (object.name !== undefined && object.name !== null) {
-      message.name = object.name;
+      message.name = object.name
     } else {
-      message.name = "";
+      message.name = ''
     }
     if (object.uri !== undefined && object.uri !== null) {
-      message.uri = object.uri;
+      message.uri = object.uri
     } else {
-      message.uri = "";
+      message.uri = ''
     }
     if (object.data !== undefined && object.data !== null) {
-      message.data = object.data;
+      message.data = object.data
     } else {
-      message.data = "";
+      message.data = ''
     }
     if (object.owner !== undefined && object.owner !== null) {
-      message.owner = object.owner;
+      message.owner = object.owner
     } else {
-      message.owner = "";
+      message.owner = ''
     }
-    return message;
-  },
-};
+    return message
+  }
+}
 
 const baseDenom: object = {
-  id: "",
-  name: "",
-  schema: "",
-  creator: "",
-  symbol: "",
+  id: '',
+  name: '',
+  schema: '',
+  creator: '',
+  symbol: '',
   mintRestricted: false,
   updateRestricted: false,
-  oracleUrl: "",
-};
+  oracleUrl: ''
+}
 
 export const Denom = {
   encode(message: Denom, writer: Writer = Writer.create()): Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
+    if (message.id !== '') {
+      writer.uint32(10).string(message.id)
     }
-    if (message.name !== "") {
-      writer.uint32(18).string(message.name);
+    if (message.name !== '') {
+      writer.uint32(18).string(message.name)
     }
-    if (message.schema !== "") {
-      writer.uint32(26).string(message.schema);
+    if (message.schema !== '') {
+      writer.uint32(26).string(message.schema)
     }
-    if (message.creator !== "") {
-      writer.uint32(34).string(message.creator);
+    if (message.creator !== '') {
+      writer.uint32(34).string(message.creator)
     }
-    if (message.symbol !== "") {
-      writer.uint32(42).string(message.symbol);
+    if (message.symbol !== '') {
+      writer.uint32(42).string(message.symbol)
     }
     if (message.mintRestricted === true) {
-      writer.uint32(48).bool(message.mintRestricted);
+      writer.uint32(48).bool(message.mintRestricted)
     }
     if (message.updateRestricted === true) {
-      writer.uint32(56).bool(message.updateRestricted);
+      writer.uint32(56).bool(message.updateRestricted)
     }
-    if (message.oracleUrl !== "") {
-      writer.uint32(66).string(message.oracleUrl);
+    if (message.oracleUrl !== '') {
+      writer.uint32(66).string(message.oracleUrl)
     }
-    return writer;
+    return writer
   },
 
   decode(input: Reader | Uint8Array, length?: number): Denom {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseDenom } as Denom;
+    const reader = input instanceof Uint8Array ? new Reader(input) : input
+    let end = length === undefined ? reader.len : reader.pos + length
+    const message = { ...baseDenom } as Denom
     while (reader.pos < end) {
-      const tag = reader.uint32();
+      const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.id = reader.string();
-          break;
+          message.id = reader.string()
+          break
         case 2:
-          message.name = reader.string();
-          break;
+          message.name = reader.string()
+          break
         case 3:
-          message.schema = reader.string();
-          break;
+          message.schema = reader.string()
+          break
         case 4:
-          message.creator = reader.string();
-          break;
+          message.creator = reader.string()
+          break
         case 5:
-          message.symbol = reader.string();
-          break;
+          message.symbol = reader.string()
+          break
         case 6:
-          message.mintRestricted = reader.bool();
-          break;
+          message.mintRestricted = reader.bool()
+          break
         case 7:
-          message.updateRestricted = reader.bool();
-          break;
+          message.updateRestricted = reader.bool()
+          break
         case 8:
-          message.oracleUrl = reader.string();
-          break;
+          message.oracleUrl = reader.string()
+          break
         default:
-          reader.skipType(tag & 7);
-          break;
+          reader.skipType(tag & 7)
+          break
       }
     }
-    return message;
+    return message
   },
 
   fromJSON(object: any): Denom {
-    const message = { ...baseDenom } as Denom;
+    const message = { ...baseDenom } as Denom
     if (object.id !== undefined && object.id !== null) {
-      message.id = String(object.id);
+      message.id = String(object.id)
     } else {
-      message.id = "";
+      message.id = ''
     }
     if (object.name !== undefined && object.name !== null) {
-      message.name = String(object.name);
+      message.name = String(object.name)
     } else {
-      message.name = "";
+      message.name = ''
     }
     if (object.schema !== undefined && object.schema !== null) {
-      message.schema = String(object.schema);
+      message.schema = String(object.schema)
     } else {
-      message.schema = "";
+      message.schema = ''
     }
     if (object.creator !== undefined && object.creator !== null) {
-      message.creator = String(object.creator);
+      message.creator = String(object.creator)
     } else {
-      message.creator = "";
+      message.creator = ''
     }
     if (object.symbol !== undefined && object.symbol !== null) {
-      message.symbol = String(object.symbol);
+      message.symbol = String(object.symbol)
     } else {
-      message.symbol = "";
+      message.symbol = ''
     }
     if (object.mintRestricted !== undefined && object.mintRestricted !== null) {
-      message.mintRestricted = Boolean(object.mintRestricted);
+      message.mintRestricted = Boolean(object.mintRestricted)
     } else {
-      message.mintRestricted = false;
+      message.mintRestricted = false
     }
-    if (
-      object.updateRestricted !== undefined &&
-      object.updateRestricted !== null
-    ) {
-      message.updateRestricted = Boolean(object.updateRestricted);
+    if (object.updateRestricted !== undefined && object.updateRestricted !== null) {
+      message.updateRestricted = Boolean(object.updateRestricted)
     } else {
-      message.updateRestricted = false;
+      message.updateRestricted = false
     }
     if (object.oracleUrl !== undefined && object.oracleUrl !== null) {
-      message.oracleUrl = String(object.oracleUrl);
+      message.oracleUrl = String(object.oracleUrl)
     } else {
-      message.oracleUrl = "";
+      message.oracleUrl = ''
     }
-    return message;
+    return message
   },
 
   toJSON(message: Denom): unknown {
-    const obj: any = {};
-    message.id !== undefined && (obj.id = message.id);
-    message.name !== undefined && (obj.name = message.name);
-    message.schema !== undefined && (obj.schema = message.schema);
-    message.creator !== undefined && (obj.creator = message.creator);
-    message.symbol !== undefined && (obj.symbol = message.symbol);
-    message.mintRestricted !== undefined &&
-      (obj.mintRestricted = message.mintRestricted);
-    message.updateRestricted !== undefined &&
-      (obj.updateRestricted = message.updateRestricted);
-    message.oracleUrl !== undefined && (obj.oracleUrl = message.oracleUrl);
-    return obj;
+    const obj: any = {}
+    message.id !== undefined && (obj.id = message.id)
+    message.name !== undefined && (obj.name = message.name)
+    message.schema !== undefined && (obj.schema = message.schema)
+    message.creator !== undefined && (obj.creator = message.creator)
+    message.symbol !== undefined && (obj.symbol = message.symbol)
+    message.mintRestricted !== undefined && (obj.mintRestricted = message.mintRestricted)
+    message.updateRestricted !== undefined && (obj.updateRestricted = message.updateRestricted)
+    message.oracleUrl !== undefined && (obj.oracleUrl = message.oracleUrl)
+    return obj
   },
 
   fromPartial(object: DeepPartial<Denom>): Denom {
-    const message = { ...baseDenom } as Denom;
+    const message = { ...baseDenom } as Denom
     if (object.id !== undefined && object.id !== null) {
-      message.id = object.id;
+      message.id = object.id
     } else {
-      message.id = "";
+      message.id = ''
     }
     if (object.name !== undefined && object.name !== null) {
-      message.name = object.name;
+      message.name = object.name
     } else {
-      message.name = "";
+      message.name = ''
     }
     if (object.schema !== undefined && object.schema !== null) {
-      message.schema = object.schema;
+      message.schema = object.schema
     } else {
-      message.schema = "";
+      message.schema = ''
     }
     if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
+      message.creator = object.creator
     } else {
-      message.creator = "";
+      message.creator = ''
     }
     if (object.symbol !== undefined && object.symbol !== null) {
-      message.symbol = object.symbol;
+      message.symbol = object.symbol
     } else {
-      message.symbol = "";
+      message.symbol = ''
     }
     if (object.mintRestricted !== undefined && object.mintRestricted !== null) {
-      message.mintRestricted = object.mintRestricted;
+      message.mintRestricted = object.mintRestricted
     } else {
-      message.mintRestricted = false;
+      message.mintRestricted = false
     }
-    if (
-      object.updateRestricted !== undefined &&
-      object.updateRestricted !== null
-    ) {
-      message.updateRestricted = object.updateRestricted;
+    if (object.updateRestricted !== undefined && object.updateRestricted !== null) {
+      message.updateRestricted = object.updateRestricted
     } else {
-      message.updateRestricted = false;
+      message.updateRestricted = false
     }
     if (object.oracleUrl !== undefined && object.oracleUrl !== null) {
-      message.oracleUrl = object.oracleUrl;
+      message.oracleUrl = object.oracleUrl
     } else {
-      message.oracleUrl = "";
+      message.oracleUrl = ''
     }
-    return message;
-  },
-};
+    return message
+  }
+}
 
-const baseIDCollection: object = { denomId: "", tokenIds: "" };
+const baseIDCollection: object = { denomId: '', tokenIds: '' }
 
 export const IDCollection = {
   encode(message: IDCollection, writer: Writer = Writer.create()): Writer {
-    if (message.denomId !== "") {
-      writer.uint32(10).string(message.denomId);
+    if (message.denomId !== '') {
+      writer.uint32(10).string(message.denomId)
     }
     for (const v of message.tokenIds) {
-      writer.uint32(18).string(v!);
+      writer.uint32(18).string(v!)
     }
-    return writer;
+    return writer
   },
 
   decode(input: Reader | Uint8Array, length?: number): IDCollection {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseIDCollection } as IDCollection;
-    message.tokenIds = [];
+    const reader = input instanceof Uint8Array ? new Reader(input) : input
+    let end = length === undefined ? reader.len : reader.pos + length
+    const message = { ...baseIDCollection } as IDCollection
+    message.tokenIds = []
     while (reader.pos < end) {
-      const tag = reader.uint32();
+      const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.denomId = reader.string();
-          break;
+          message.denomId = reader.string()
+          break
         case 2:
-          message.tokenIds.push(reader.string());
-          break;
+          message.tokenIds.push(reader.string())
+          break
         default:
-          reader.skipType(tag & 7);
-          break;
+          reader.skipType(tag & 7)
+          break
       }
     }
-    return message;
+    return message
   },
 
   fromJSON(object: any): IDCollection {
-    const message = { ...baseIDCollection } as IDCollection;
-    message.tokenIds = [];
+    const message = { ...baseIDCollection } as IDCollection
+    message.tokenIds = []
     if (object.denomId !== undefined && object.denomId !== null) {
-      message.denomId = String(object.denomId);
+      message.denomId = String(object.denomId)
     } else {
-      message.denomId = "";
+      message.denomId = ''
     }
     if (object.tokenIds !== undefined && object.tokenIds !== null) {
       for (const e of object.tokenIds) {
-        message.tokenIds.push(String(e));
+        message.tokenIds.push(String(e))
       }
     }
-    return message;
+    return message
   },
 
   toJSON(message: IDCollection): unknown {
-    const obj: any = {};
-    message.denomId !== undefined && (obj.denomId = message.denomId);
+    const obj: any = {}
+    message.denomId !== undefined && (obj.denomId = message.denomId)
     if (message.tokenIds) {
-      obj.tokenIds = message.tokenIds.map((e) => e);
+      obj.tokenIds = message.tokenIds.map((e) => e)
     } else {
-      obj.tokenIds = [];
+      obj.tokenIds = []
     }
-    return obj;
+    return obj
   },
 
   fromPartial(object: DeepPartial<IDCollection>): IDCollection {
-    const message = { ...baseIDCollection } as IDCollection;
-    message.tokenIds = [];
+    const message = { ...baseIDCollection } as IDCollection
+    message.tokenIds = []
     if (object.denomId !== undefined && object.denomId !== null) {
-      message.denomId = object.denomId;
+      message.denomId = object.denomId
     } else {
-      message.denomId = "";
+      message.denomId = ''
     }
     if (object.tokenIds !== undefined && object.tokenIds !== null) {
       for (const e of object.tokenIds) {
-        message.tokenIds.push(e);
+        message.tokenIds.push(e)
       }
     }
-    return message;
-  },
-};
+    return message
+  }
+}
 
-const baseOwner: object = { address: "" };
+const baseOwner: object = { address: '' }
 
 export const Owner = {
   encode(message: Owner, writer: Writer = Writer.create()): Writer {
-    if (message.address !== "") {
-      writer.uint32(10).string(message.address);
+    if (message.address !== '') {
+      writer.uint32(10).string(message.address)
     }
     for (const v of message.idCollections) {
-      IDCollection.encode(v!, writer.uint32(18).fork()).ldelim();
+      IDCollection.encode(v!, writer.uint32(18).fork()).ldelim()
     }
-    return writer;
+    return writer
   },
 
   decode(input: Reader | Uint8Array, length?: number): Owner {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseOwner } as Owner;
-    message.idCollections = [];
+    const reader = input instanceof Uint8Array ? new Reader(input) : input
+    let end = length === undefined ? reader.len : reader.pos + length
+    const message = { ...baseOwner } as Owner
+    message.idCollections = []
     while (reader.pos < end) {
-      const tag = reader.uint32();
+      const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.address = reader.string();
-          break;
+          message.address = reader.string()
+          break
         case 2:
-          message.idCollections.push(
-            IDCollection.decode(reader, reader.uint32())
-          );
-          break;
+          message.idCollections.push(IDCollection.decode(reader, reader.uint32()))
+          break
         default:
-          reader.skipType(tag & 7);
-          break;
+          reader.skipType(tag & 7)
+          break
       }
     }
-    return message;
+    return message
   },
 
   fromJSON(object: any): Owner {
-    const message = { ...baseOwner } as Owner;
-    message.idCollections = [];
+    const message = { ...baseOwner } as Owner
+    message.idCollections = []
     if (object.address !== undefined && object.address !== null) {
-      message.address = String(object.address);
+      message.address = String(object.address)
     } else {
-      message.address = "";
+      message.address = ''
     }
     if (object.idCollections !== undefined && object.idCollections !== null) {
       for (const e of object.idCollections) {
-        message.idCollections.push(IDCollection.fromJSON(e));
+        message.idCollections.push(IDCollection.fromJSON(e))
       }
     }
-    return message;
+    return message
   },
 
   toJSON(message: Owner): unknown {
-    const obj: any = {};
-    message.address !== undefined && (obj.address = message.address);
+    const obj: any = {}
+    message.address !== undefined && (obj.address = message.address)
     if (message.idCollections) {
-      obj.idCollections = message.idCollections.map((e) =>
-        e ? IDCollection.toJSON(e) : undefined
-      );
+      obj.idCollections = message.idCollections.map((e) => (e ? IDCollection.toJSON(e) : undefined))
     } else {
-      obj.idCollections = [];
+      obj.idCollections = []
     }
-    return obj;
+    return obj
   },
 
   fromPartial(object: DeepPartial<Owner>): Owner {
-    const message = { ...baseOwner } as Owner;
-    message.idCollections = [];
+    const message = { ...baseOwner } as Owner
+    message.idCollections = []
     if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
+      message.address = object.address
     } else {
-      message.address = "";
+      message.address = ''
     }
     if (object.idCollections !== undefined && object.idCollections !== null) {
       for (const e of object.idCollections) {
-        message.idCollections.push(IDCollection.fromPartial(e));
+        message.idCollections.push(IDCollection.fromPartial(e))
       }
     }
-    return message;
-  },
-};
+    return message
+  }
+}
 
-const baseCollection: object = {};
+const baseCollection: object = {}
 
 export const Collection = {
   encode(message: Collection, writer: Writer = Writer.create()): Writer {
     if (message.denom !== undefined) {
-      Denom.encode(message.denom, writer.uint32(10).fork()).ldelim();
+      Denom.encode(message.denom, writer.uint32(10).fork()).ldelim()
     }
     for (const v of message.nfts) {
-      BaseNFT.encode(v!, writer.uint32(18).fork()).ldelim();
+      BaseNFT.encode(v!, writer.uint32(18).fork()).ldelim()
     }
-    return writer;
+    return writer
   },
 
   decode(input: Reader | Uint8Array, length?: number): Collection {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseCollection } as Collection;
-    message.nfts = [];
+    const reader = input instanceof Uint8Array ? new Reader(input) : input
+    let end = length === undefined ? reader.len : reader.pos + length
+    const message = { ...baseCollection } as Collection
+    message.nfts = []
     while (reader.pos < end) {
-      const tag = reader.uint32();
+      const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.denom = Denom.decode(reader, reader.uint32());
-          break;
+          message.denom = Denom.decode(reader, reader.uint32())
+          break
         case 2:
-          message.nfts.push(BaseNFT.decode(reader, reader.uint32()));
-          break;
+          message.nfts.push(BaseNFT.decode(reader, reader.uint32()))
+          break
         default:
-          reader.skipType(tag & 7);
-          break;
+          reader.skipType(tag & 7)
+          break
       }
     }
-    return message;
+    return message
   },
 
   fromJSON(object: any): Collection {
-    const message = { ...baseCollection } as Collection;
-    message.nfts = [];
+    const message = { ...baseCollection } as Collection
+    message.nfts = []
     if (object.denom !== undefined && object.denom !== null) {
-      message.denom = Denom.fromJSON(object.denom);
+      message.denom = Denom.fromJSON(object.denom)
     } else {
-      message.denom = undefined;
+      message.denom = undefined
     }
     if (object.nfts !== undefined && object.nfts !== null) {
       for (const e of object.nfts) {
-        message.nfts.push(BaseNFT.fromJSON(e));
+        message.nfts.push(BaseNFT.fromJSON(e))
       }
     }
-    return message;
+    return message
   },
 
   toJSON(message: Collection): unknown {
-    const obj: any = {};
+    const obj: any = {}
     message.denom !== undefined &&
-      (obj.denom = message.denom ? Denom.toJSON(message.denom) : undefined);
+      (obj.denom = message.denom ? Denom.toJSON(message.denom) : undefined)
     if (message.nfts) {
-      obj.nfts = message.nfts.map((e) => (e ? BaseNFT.toJSON(e) : undefined));
+      obj.nfts = message.nfts.map((e) => (e ? BaseNFT.toJSON(e) : undefined))
     } else {
-      obj.nfts = [];
+      obj.nfts = []
     }
-    return obj;
+    return obj
   },
 
   fromPartial(object: DeepPartial<Collection>): Collection {
-    const message = { ...baseCollection } as Collection;
-    message.nfts = [];
+    const message = { ...baseCollection } as Collection
+    message.nfts = []
     if (object.denom !== undefined && object.denom !== null) {
-      message.denom = Denom.fromPartial(object.denom);
+      message.denom = Denom.fromPartial(object.denom)
     } else {
-      message.denom = undefined;
+      message.denom = undefined
     }
     if (object.nfts !== undefined && object.nfts !== null) {
       for (const e of object.nfts) {
-        message.nfts.push(BaseNFT.fromPartial(e));
+        message.nfts.push(BaseNFT.fromPartial(e))
       }
     }
-    return message;
-  },
-};
+    return message
+  }
+}
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined;
+type Builtin = Date | Function | Uint8Array | string | number | undefined
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
@@ -607,4 +595,4 @@ export type DeepPartial<T> = T extends Builtin
   ? ReadonlyArray<DeepPartial<U>>
   : T extends {}
   ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+  : Partial<T>

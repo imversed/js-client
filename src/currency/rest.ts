@@ -8,11 +8,11 @@
  * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
  * ---------------------------------------------------------------
  */
-import fetch from "cross-fetch"
 
 export interface CurrencyCurrency {
   denom?: string;
   owner?: string;
+  icon?: string;
 }
 
 export type CurrencyMsgIssueResponse = object;
@@ -24,7 +24,7 @@ export type CurrencyMsgMintResponse = object;
  */
 export interface CurrencyParams {
   /** @format uint64 */
-  txMintCurrencyCost?: string;
+  tx_mint_currency_cost?: string;
 }
 
 export interface CurrencyQueryAllCurrencyResponse {
@@ -112,9 +112,13 @@ export interface V1Beta1PageRequest {
    * count_total is only respected when offset is used. It is ignored when key
    * is set.
    */
-  countTotal?: boolean;
+  count_total?: boolean;
 
-  /** reverse is set to true if results are to be returned in the descending order. */
+  /**
+   * reverse is set to true if results are to be returned in the descending order.
+   *
+   * Since: cosmos-sdk 0.43
+   */
   reverse?: boolean;
 }
 
@@ -129,7 +133,7 @@ corresponding request message has used PageRequest.
 */
 export interface V1Beta1PageResponse {
   /** @format byte */
-  nextKey?: string;
+  next_key?: string;
 
   /** @format uint64 */
   total?: string;
@@ -337,20 +341,20 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryCurrencyAll
    * @summary Queries a list of currency items.
-   * @request GET:/fulldivevr/imversed/currency/currency
+   * @request GET:/imversed/imversed/currency/currency
    */
   queryCurrencyAll = (
     query?: {
       "pagination.key"?: string;
       "pagination.offset"?: string;
       "pagination.limit"?: string;
-      "pagination.countTotal"?: boolean;
+      "pagination.count_total"?: boolean;
       "pagination.reverse"?: boolean;
     },
     params: RequestParams = {},
   ) =>
     this.request<CurrencyQueryAllCurrencyResponse, RpcStatus>({
-      path: `/fulldivevr/imversed/currency/currency`,
+      path: `/imversed/imversed/currency/currency`,
       method: "GET",
       query: query,
       format: "json",
@@ -363,11 +367,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryCurrency
    * @summary Queries a currency by index.
-   * @request GET:/fulldivevr/imversed/currency/currency/{denom}
+   * @request GET:/imversed/imversed/currency/currency/{denom}
    */
   queryCurrency = (denom: string, params: RequestParams = {}) =>
     this.request<CurrencyQueryGetCurrencyResponse, RpcStatus>({
-      path: `/fulldivevr/imversed/currency/currency/${denom}`,
+      path: `/imversed/imversed/currency/currency/${denom}`,
       method: "GET",
       format: "json",
       ...params,
@@ -379,11 +383,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryParams
    * @summary Parameters queries the parameters of the module.
-   * @request GET:/fulldivevr/imversed/currency/params
+   * @request GET:/imversed/imversed/currency/params
    */
   queryParams = (params: RequestParams = {}) =>
     this.request<CurrencyQueryParamsResponse, RpcStatus>({
-      path: `/fulldivevr/imversed/currency/params`,
+      path: `/imversed/imversed/currency/params`,
       method: "GET",
       format: "json",
       ...params,
